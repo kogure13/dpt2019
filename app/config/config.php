@@ -13,14 +13,16 @@ $base_url .= "://" . $_SERVER['HTTP_HOST'];
 $base_url .= str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME']);
 define('BASE_URL', $base_url);
 
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'db_unnur');
-define('DB_USER', 'kogure13');
+define('DB_HOST', '103.129.220.250');
+define('DB_NAME', 'edptjsio_dpt');
+define('DB_USER', 'edptjsio_root');
 define('DB_PASS', '@P4ssw0rd');
 
-define('APPS_TITLE', 'sistem informasi akademik');
-define('APPS_NAME', 'siakad');
-define('APPS_VER', '1.0.19');
+define('APPS_TITLE', '');
+define('APPS_NAME', 'e-DPT');
+define('APPS_VER', '2.8.19');
+
+define('CP_NAME', 'JSI');
 
 define('HASH_KEY', '');
 

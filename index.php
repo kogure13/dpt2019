@@ -2,7 +2,7 @@
 session_start();
 require_once 'app/init.php';
 
-$db = new DBobj();
-$connString = $db->getConnString();
+$_SESSION['role'] = 1;
 
-if ($connString) echo 'ok';
+$main = new Main();
+$main->getMain();

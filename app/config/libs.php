@@ -1,10 +1,17 @@
 <?php
 
-function anchor($anchor = [])
+function anchor($anchor, $data)
 {
-    echo '<a href="' . $anchor['link'] . '" id="' . $anchor[1] . '"
-        class="' . $anchor[2] . '">
-        <i class="' . $anchor['icon'] . '"></i> ' . $anchor[0] . '</a>';
+    echo '<a ';
+    foreach ($anchor as $key => $val) {
+        echo $key . $val;
+        echo ' ';
+    }
+    echo '>';
+    foreach ($data as $icon => $t) {
+        echo '<i class="' . $icon . '"></i> ' . $t;
+    };
+    echo '</a>';
 }
 
 function button($attribut, $data)
@@ -21,15 +28,7 @@ function button($attribut, $data)
     echo '</button>';
 }
 
-// function input($data = [])
-// {
-//     echo '
-//         <input type="' . $data['type'] . '" name="' . $data['name'] . '"
-//         id="' . $data['id'] . '" class="' . $data['class'] . '"
-//         placeholder = "' . $data['placeholder'] . '">
-//         ';
-// }
-function input($attribut = [])
+function input($attribut)
 {
     echo '<input ';
     foreach ($attribut as $key => $val) {
@@ -39,13 +38,15 @@ function input($attribut = [])
     echo '>';
 }
 
-function select($data = [], $option = [])
+function select($data = [], $title, $option = [])
 {
-    echo '
-        <select name="' . $data['name'] . '" id="' . $data['id'] . '"
-        class="' . $data['class'] . '">
-        ';
-    echo '<option>-Choose One-</option>';
+    echo '<select ';
+    foreach ($data as $key => $attrib) {
+        echo $attrib;
+        echo ' ';
+    }
+    echo '>';
+    echo '<option>' . $title . '</option>';
     if (count($option) > 0) {
         foreach ($option as $key => $val) {
             echo '<option value="' . $key . '">' . $val . '</option>';
@@ -82,7 +83,7 @@ function batasTanggal($nowDay, $exp)
 
 function check_login()
 {
-    require_once '../app/views/403.php';
+    require_once 'app/views/403.php';
 }
 
 function msg($msg)
