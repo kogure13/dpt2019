@@ -20,7 +20,7 @@
 <script src="<?= BASE_URL ?>public/dist/js/app.min.js"></script>
 <script src="<?= BASE_URL ?>public/dist/js/jquery.validate.min.js"></script>
 
-<script src="<?= BASE_URL ?>public/js/default.js"></script>
+<script src="<?= BASE_URL ?>app/js/default.js"></script>
 <?= APP_Script ?>
 </body>
 
