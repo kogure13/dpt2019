@@ -1,10 +1,10 @@
-<aside class="main-sidebar elevation-4">
+<aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="<?= BASE_URL ?>public/assets/images/noprofile.gif" class="img-circle" alt="User Image">
+                <img src="<?= BASE_URL ?>public/assets/images/logo.png" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
                 <p><?= APPS_NAME ?></p>
@@ -15,7 +15,7 @@
         </div>
 
         <!-- sidebar menu: : style can be found in sidebar.less -->
-        <ul class="sidebar-menu">
+        <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
             <?php
 

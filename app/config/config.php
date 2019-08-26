@@ -22,19 +22,22 @@ define('APPS_TITLE', '');
 define('APPS_NAME', 'e-DPT');
 define('APPS_VER', '2.8.19');
 
-define('CP_NAME', 'JSI');
+define('CP_NAME', 'Jaringan Suara Indonesia');
+define('CP_SHORT', 'JSI');
+define('CP_TAGS', 'Jasa Konsultan Politik');
+
 
 define('HASH_KEY', '');
 
 $js = (isset($_GET['page']) ? $_GET['page'] : '');
 if ($js == null) {
     $js = "home.js";
-    $js = '<script src="' . BASE_URL . 'public/js/' . $js . '"></script>';
+    $js = '<script src="' . BASE_URL . 'app/js/' . $js . '"></script>';
 } elseif ($js == "logout") {
     $js = "";
 } else {
     // $js = $js . '.js';
-    $js = '<script src="' . BASE_URL . 'public/js/' . $js . '.js"></script>';
+    $js = '<script src="' . BASE_URL . 'app/js/' . $js . '.js"></script>';
 }
 
 define('APP_Script', $js);

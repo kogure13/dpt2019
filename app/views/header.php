@@ -3,23 +3,31 @@
 
 <head>
     <meta charset="UTF-8">
-    <!-- <meta http-equiv="cache-control" content="no-cache"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <meta http-equiv="cache-control" content="no-cache"> -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    
     <title> | <?= CP_NAME ?></title>
 
     <link rel="shortcut icon" href="<?= BASE_URL ?>public/assets/images/logo.png" type="image/x-icon">
 
-    <link rel="stylesheet" href="<?= BASE_URL ?>public/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>public/plugins/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>public/plugins/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>public/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>public/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>public/bower_components/Ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>public/bower_components/datatables.net-bs/css/dataTables.bootstrap.css">
 
     <link rel="stylesheet" href="<?= BASE_URL ?>public/dist/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>public/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>public/dist/css/bootstrap-material-design.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>public/dist/css/ripples.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>public/dist/css/MaterialAdminLTE.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>public/dist/css/skins/all-md-skins.min.css">
+
     <link rel="stylesheet" href="<?= BASE_URL ?>public/dist/css/style.css">
+
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"> -->
 </head>
 
-<body class="sidebar-mini layout-footer-fixed wysihtml5-supported skin-blue-light fixed">
+<body class="fixed hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
         <header class="main-header">
             <!-- Logo -->
@@ -30,13 +38,13 @@
                 </span>
                 <!-- logo for regular state and mobile devices -->
                 <span class="logo-lg">
-                    <img src="<?= BASE_URL ?>public/assets/images/unnur-dark-logo.png" style="height: 43px">
+                    <img src="<?= BASE_URL ?>public/assets/images/logo-lg.png" style="height: 43px">
                 </span>
             </a>
 
             <nav class="navbar navbar-static-top">
                 <!-- Sidebar toggle button-->
-                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                     <span class="sr-only">Toggle navigation</span>
                 </a>
 
