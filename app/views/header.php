@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="<?= BASE_URL ?>public/dist/css/MaterialAdminLTE.min.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>public/dist/css/skins/all-md-skins.min.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+
     <link rel="stylesheet" href="<?= BASE_URL ?>public/dist/css/style.css">
 
     <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"> -->
