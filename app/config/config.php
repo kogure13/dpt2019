@@ -13,12 +13,17 @@ $base_url .= "://" . $_SERVER['HTTP_HOST'];
 $base_url .= str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME']);
 define('BASE_URL', $base_url);
 
-define('DB_HOST', '103.129.220.250');
+define('MY_LM', 'T440p'); //local machine
+$hostname = gethostname();
+
+(MY_LM == $hostname) ? $host = '103.129.220.250' : $host = 'localhost';
+
+define('DB_HOST', $host);
 define('DB_NAME', 'edptjsio_dpt');
 define('DB_USER', 'edptjsio_root');
 define('DB_PASS', '@P4ssw0rd');
 
-define('APPS_TITLE', '');
+define('APPS_TITLE', 'e-DPT');
 define('APPS_NAME', 'e-DPT');
 define('APPS_VER', '2.8.19');
 

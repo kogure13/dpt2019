@@ -2,7 +2,7 @@
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
         <!-- Sidebar user panel -->
-        <div class="user-panel">
+        <div class="user-panel hidden-xs">
             <div class="pull-left image">
                 <img src="<?= BASE_URL ?>public/assets/images/logo.png" class="img-circle" alt="User Image">
             </div>

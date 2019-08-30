@@ -18,7 +18,6 @@
 </footer>
 </div>
 
-<script src="<?= BASE_URL ?>public/plugins/jQueryUI/jquery-3.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!-- <script src="<?= BASE_URL ?>public/plugins/jQueryUI/jquery-ui.min.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -42,6 +41,7 @@
 <script src="<?= BASE_URL ?>public/bower_components/chart.js/Chart.js"></script>
 
 <script src="<?= BASE_URL ?>public/dist/js/jquery.validate.min.js"></script>
+
 <script src="<?= BASE_URL ?>app/js/default.js"></script>
 <?= APP_Script ?>
 </body>

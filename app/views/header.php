@@ -41,6 +41,7 @@
                 <!-- logo for regular state and mobile devices -->
                 <span class="logo-lg">
                     <img src="<?= BASE_URL ?>public/assets/images/logo-lg.png" style="height: 43px">
+                    Aplikasi e-DPT
                 </span>
             </a>
 
@@ -51,17 +52,12 @@
                 </a>
 
                 <div class="navbar-custom-menu">
-                    <div class="nav navbar-nav hidden-lg hidden-md hidden-sm" style="color: #fff; font-weight: 600;">
-                        <a href="index.php" class="navbar-brand custom-brand">
-
-                        </a>
-                    </div>
                     <ul class="nav navbar-nav">
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                 <span>
                                     <i class="username-detail text-user-detail" id="username-detail"></i>
-                                    <i class="fa fa-caret-down"></i>
+                                    User
                                 </span>
                             </a>
                             <ul class="dropdown-menu">
