@@ -1,5 +1,12 @@
 var host = window.origin;
 // console.log(host)
+var pilihFilter;
+var items_prov;
+var items_kabkota;
+var items_kecamatan;
+var items_kelurahan;
+var items_tps;
+
 $(function() {
   $("#tags_kelurahan").autocomplete({
     source: host + "/app/api/kelurahan/tags_kelurahan.php",
@@ -28,6 +35,8 @@ $(function() {
     select: function(event, ui) {
       $("#tags_kbakota").val(ui.item.value);
       $("#id_kabkota").val(ui.item.id);
+      id = $("id_kabkota").val();
+      letDropDown(id);
 
       return false;
     },
@@ -39,6 +48,8 @@ $(function() {
     select: function(event, ui) {
       $("#tags_provinsi").val(ui.item.value);
       $("#id_provinsi").val(ui.item.id);
+      id = $("#id_provinsi").val();
+      letDropDown(id, "provinsi");
 
       return false;
     },
@@ -60,4 +71,23 @@ function numberFormat(number) {
     .join("");
 
   return ribuan;
+}
+
+function letDropDown(id, filter) {
+  let dropdown_tags = $("#selectTPS");
+  dropdown_tags.empty();
+  dropdown_tags.append('<option selected="true" disabled>TPSS</option>');
+
+  $.getJSON(
+    host + "/app/api/dpt/ajax.php?action=getTPS&filter=" + filter + "&id=" + id,
+    function(data) {
+      $.each(data, function(key, entry) {
+        dropdown_tags.append(
+          $("<option></option>")
+            .attr("value", entry.id)
+            .text(entry.nama)
+        );
+      });
+    }
+  );
 }

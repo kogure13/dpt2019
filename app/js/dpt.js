@@ -1,8 +1,9 @@
-var pilihFilter;
-
 $(function() {
   var dump = $("#idPilihFilter").change(function(e) {
     e.preventDefault();
+    $form = $(".formClear");
+    $form.val("");
+
     $(".form-control,.btnCari").attr("disabled", false);
     var inputValue = $(this).val();
     var targetBox = $("#" + inputValue);
@@ -21,5 +22,13 @@ $(function() {
       sLengthMenu: "_MENU_"
     },
     aoColumnDefs: [{ aTargets: ["nosort"], bSortable: false }]
+  });
+  //end datatable
+
+  //search proses
+  $("#btnCari").on("click", function(e) {
+    e.preventDefault();
+    $tps = $("#selectTPS").val();
+    $niknama = $("#niknama").val();
   });
 });

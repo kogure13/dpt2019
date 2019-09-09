@@ -31,12 +31,12 @@
                                 <div class="form-group is-empty pilihView" id="kelurahan" style="display: none">
                                     <?php
                                     input($attr = [
-                                        'type="hidden"', 'name="id_kelurahan"',
+                                        'type="hidden"', 'name="id_kelurahan"', 'class="formClear"',
                                         'id="id_kelurahan"', 'autocomplete="off"',
                                     ]);
                                     input($attr = [
                                         'type="text"', 'name="tags_kelurahan"',
-                                        'id="tags_kelurahan"', 'class="form-control"',
+                                        'id="tags_kelurahan"', 'class="form-control formClear"',
                                         'autocomplete="off"', 'placeholder="Kelurahan/Kecamatan/Kabupaten Kota/Provinsi"',
                                     ]);
                                     ?>
@@ -44,12 +44,12 @@
                                 <div class="form-group is-empty pilihView" id="kecamatan" style="display: none">
                                     <?php
                                     input($attr = [
-                                        'type="hidden"', 'name="id_kecamatan"',
+                                        'type="hidden"', 'name="id_kecamatan"', 'class="formClear"',
                                         'id="id_kecamatan"', 'autocomplete="off"',
                                     ]);
                                     input($attr = [
                                         'type="text"', 'name="tags_kecamatan"',
-                                        'id="tags_kecamatan"', 'class="form-control"',
+                                        'id="tags_kecamatan"', 'class="form-control formClear"',
                                         'autocomplete="off"', 'placeholder="Kecamatan/Kabupaten Kota/Provinsi"',
                                     ]);
                                     ?>
@@ -57,12 +57,12 @@
                                 <div class="form-group is-empty pilihView" id="kabkota" style="display: none">
                                     <?php
                                     input($attr = [
-                                        'type="hidden"', 'name="id_kabkota"',
+                                        'type="hidden"', 'name="id_kabkota"', 'class="formClear"',
                                         'id="id_kabkota"', 'autocomplete="off"',
                                     ]);
                                     input($attr = [
                                         'type="text"', 'name="tags_kabkota"',
-                                        'id="tags_kabkota"', 'class="form-control"',
+                                        'id="tags_kabkota"', 'class="form-control formClear"',
                                         'autocomplete="off"', 'placeholder="Kabupaten Kota/Provinsi"',
                                     ]);
                                     ?>
@@ -70,12 +70,12 @@
                                 <div class="form-group is-empty pilihView" id="provinsi" style="display: none">
                                     <?php
                                     input($attr = [
-                                        'type="hidden"', 'name="id_provinsi"',
+                                        'type="hidden"', 'name="id_provinsi"', 'class="formClear"',
                                         'id="id_provinsi"', 'autocomplete="off"',
                                     ]);
                                     input($attr = [
                                         'type="text"', 'name="tags_provinsi"',
-                                        'id="tags_provinsi"', 'class="form-control"',
+                                        'id="tags_provinsi"', 'class="form-control formClear dropdown-tags"',
                                         'autocomplete="off"', 'placeholder="Provinsi"',
                                     ]);
                                     ?>
@@ -83,7 +83,8 @@
                             </div>
                             <div class="col-xs-2 col-sm-1 col-md-1">
                                 <div class="form-group is-empty">
-                                    <select name="selectTPS" id="selectTPS" class="form-control" disabled="disabled">
+                                    <select name="selectTPS" id="selectTPS" class="form-control formClear"
+                                        disabled="disabled">
                                         <option value="">TPS</option>
                                     </select>
                                 </div>
@@ -93,7 +94,7 @@
                                     <div class="form-group is-empty">
                                         <?php
                                         input($attr = [
-                                            'type="text"', 'name="niknama"', 'id="niknama"', 'class="form-control"',
+                                            'type="text"', 'name="niknama"', 'id="niknama"', 'class="form-control formClear"',
                                             'placeholder="Cari NIK/NAMA"', 'disabled="disabled"', 'autocomplete="off"'
                                         ]);
                                         ?>
@@ -102,7 +103,7 @@
                                         <?php
                                         button($attr = [
                                             'type="button"', 'id="btnCari"', 'class="btn btn-sm bg-aqua"',
-                                        ], $data = ['Cari'])
+                                        ], $data = ['<i class="fa fa-search"></i> Cari'])
                                         ?>
                                     </span>
                                 </div>
