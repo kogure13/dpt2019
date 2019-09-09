@@ -1804,7 +1804,7 @@ fieldset[disabled] .btn.btn-social-icon.btn-yahoo.focus {
 }
 .box .box-body .input-group,
 .box .box-footer .input-group {
-  margin-top: 28px;
+  margin-top: 0px; /*defaul 28*/
 }
 .box .box-body .input-group .form-group,
 .box .box-footer .input-group .form-group {
@@ -1840,7 +1840,7 @@ fieldset[disabled] .btn.btn-social-icon.btn-yahoo.focus {
 .main-sidebar .user-panel {
   background: url(../img/patterns/user-panel-bg_green.jpg) no-repeat;
   color: #fff;
-  padding: 30px 20px;
+  padding: 15px 20px;
 }
 .main-sidebar .user-panel .image {
   float: none !important;
