@@ -2,7 +2,7 @@ table.dataTable {
     width: 100%;
     margin: 0 auto;
     clear: both;
-    border-collapse: separate;
+    /* border-collapse: separate; */
     border-spacing: 0;
 }
 
@@ -231,7 +231,7 @@ table.dataTable.order-column.hover tbody tr:hover.selected>.sorting_3 {
 }
 
 table.dataTable.no-footer {
-    border-bottom: 1px solid #111;
+    border-bottom: 1px solid #34495e;
 }
 
 table.dataTable.nowrap th,

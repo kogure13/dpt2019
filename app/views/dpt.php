@@ -102,7 +102,7 @@
                                     <span class="input-group-btn">
                                         <?php
                                         button($attr = [
-                                            'type="button"', 'id="btnCari"', 'class="btn btn-sm bg-aqua"',
+                                            'type="button"', 'id="btnCari"', 'class="btnCari btn btn-sm bg-aqua"',
                                         ], $data = ['<i class="fa fa-search"></i> Cari'])
                                         ?>
                                     </span>

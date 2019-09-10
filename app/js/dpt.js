@@ -1,4 +1,5 @@
 $(function() {
+  $(".btnCari").attr("disabled", true);
   var dump = $("#idPilihFilter").change(function(e) {
     e.preventDefault();
     $form = $(".formClear");
