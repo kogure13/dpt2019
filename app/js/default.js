@@ -38,7 +38,7 @@ $(function () {
   $("#tags_kabkota").autocomplete({
     source: host + "/app/api/kabkota/tags_kabkota.php",
     select: function (event, ui) {
-      $("#tags_kbakota").val(ui.item.value);
+      $("#tags_kabkota").val(ui.item.value);
       $("#id_kabkota").val(ui.item.id);
       id = $("#id_kabkota").val();
       letDropDown(id, "kabkota");
