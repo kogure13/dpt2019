@@ -41,11 +41,12 @@ class Proses {
     }
 
     function callProses() {
-        mysqli_query($this->conn, 'CALL update_dashboard()');
-        mysqli_query($this->conn, 'CALL tps_provinsi()');
-        mysqli_query($this->conn, 'CALL tps_kabupaten_kota()');
-        mysqli_query($this->conn, 'CALL tps_kecamtan()');
-        mysqli_query($this->conn, 'CALL tps_kelurahan()');
+        // mysqli_query($this->conn, 'CALL update_dashboard()');
+        // mysqli_query($this->conn, 'CALL tps_provinsi()');
+        // mysqli_query($this->conn, 'CALL tps_kabupaten_kota()');
+        // mysqli_query($this->conn, 'CALL tps_kecamtan()');
+        // mysqli_query($this->conn, 'CALL tps_kelurahan()');
+        return;
     }
 }
 

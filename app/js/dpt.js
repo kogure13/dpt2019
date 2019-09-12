@@ -29,7 +29,21 @@ $(function() {
   //search proses
   $("#btnCari").on("click", function(e) {
     e.preventDefault();
-    $tps = $("#selectTPS").val();
-    $niknama = $("#niknama").val();
+    items_prov =  $("#tags_provinsi").val();
+    items_kabkota = $("#tags_kabkota").val();
+    items_kecamatan = $("tags_kecamatan").val();
+    items_kelurahan = $("tags_kelurahan").val();
+    var tps = $("#selectTPS").val();
+    var niknama = $("#niknama").val();
+
+    if(items_prov === "" || items_kabkota === "" || items_kecamatan === "" || items_kelurahan === "") {
+      alert("Please field it");
+    }
+    if(tps === "") {
+      alert("empty TPS, please pick one");
+    }
+    if(niknama === "") {
+      alert("empty NIK/NAMA, please field it");
+    }
   });
 });
