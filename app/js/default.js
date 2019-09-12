@@ -101,4 +101,4 @@ setInterval(function sendReq() {
   $.ajax({
     url: host + "/app/api/ping.php"
   })
-}, 300000);
+}, 30000);
