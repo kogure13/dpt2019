@@ -7,7 +7,7 @@ $connString = $db->getConnString();
 
 $term = trim(strip_tags($_GET['term']));
 
-$qstring = "SELECT k.id_kecamatan, k.nama_kecamatan, kk.nama_kabupaten_kota, p.nama_provinsi FROM kecamatan k";
+$qstring = "SELECT k.id_kecamatan, k.kode_kecamatan, k.nama_kecamatan, kk.nama_kabupaten_kota, p.nama_provinsi FROM kecamatan k";
 
 $qstring .= " join kabupaten_kota kk on kk.id_kabupaten_kota = k.id_kabupaten_kota";
 $qstring .= " join provinsi p on p.id_provinsi = kk.id_provinsi";
@@ -20,6 +20,7 @@ $qstring .= " order by k.nama_kecamatan, kk.nama_kabupaten_kota, p.nama_provinsi
 $result = mysqli_query($connString, $qstring) or die();
 while ($row = mysqli_fetch_assoc($result)) {
     $json[] = array(
+        'kode' => $row['kode_kecamatan'],
         'label' => $row['nama_kecamatan'] . ' - ' . $row['nama_kabupaten_kota'] . ' - ' . $row['nama_provinsi'],
         'value' => ucwords($row['nama_kecamatan']),
         'id' => $row['id_kecamatan']

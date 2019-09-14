@@ -15,35 +15,45 @@ $(function() {
   });
 
   // dataTable
-  $("#lookup").dataTable({
+  var dTable = $("#lookup").dataTable({
     responsive: true,
+    serverSide: true,
+    order: [],
+    pageLength: 20,
     language: {
       sSearch: "_INPUT_",
       sSearchPlaceholder: "Search...",
       sLengthMenu: "_MENU_"
     },
-    aoColumnDefs: [{ aTargets: ["nosort"], bSortable: false }]
+    aoColumnDefs: [{ aTargets: ["nosort"], bSortable: false }],
+    ajax: {
+      url: host + "/app/api/dpt/ajax.php",
+      type: "post",
+      data: function(data) {
+        data.kode_provinsi = $("#kode_provinsi").val();
+        data.kode_kabkota = $("#kode_kabkota").val();
+        data.kode_kecamatan = $("#kode_kecamatan").val();
+        data.kode_kelurahan = $("#kelurahan").val();
+        data.tps = $("#selectTPS").val();
+        data.niknama = $("#niknama").val();
+      }
+    }
   });
   //end datatable
 
   //search proses
-  $("#btnCari").on("click", function(e) {
+  $(".btnCari").on("click", function(e) {
     e.preventDefault();
-    items_prov =  $("#tags_provinsi").val();
-    items_kabkota = $("#tags_kabkota").val();
-    items_kecamatan = $("tags_kecamatan").val();
-    items_kelurahan = $("tags_kelurahan").val();
-    var tps = $("#selectTPS").val();
-    var niknama = $("#niknama").val();
+    data = $("#formAdd").serializeArray();
+    dTable = $("#lookup").dataTable();
 
-    if(items_prov === "" || items_kabkota === "" || items_kecamatan === "" || items_kelurahan === "") {
-      alert("Please field it");
-    }
-    if(tps === "") {
-      alert("empty TPS, please pick one");
-    }
-    if(niknama === "") {
-      alert("empty NIK/NAMA, please field it");
-    }
+    dump = $.ajax({
+      url: host + "/app/api/dpt/ajax.php",
+      type: "post",
+      data: data,
+      success: function(response) {
+        dTable.ajax.reload();
+      }
+    });
   });
 });

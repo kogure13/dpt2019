@@ -83,7 +83,8 @@ class Crud
         if (!empty($order)) {
             $sql .= " order by $order ";
         }
-
+        // echo $sql;
+        // exit();
         $query = mysqli_query($this->conn, $sql) or die('Error Select Data');
         return $query;
     }

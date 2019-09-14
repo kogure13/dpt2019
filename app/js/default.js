@@ -8,13 +8,14 @@ var items_kelurahan;
 var items_tps;
 
 $(function() {
-  sendReq();
+  // sendReq();
 
   $("#tags_kelurahan").autocomplete({
     source: host + "/app/api/kelurahan/tags_kelurahan.php",
     select: function(event, ui) {
       $("#tags_kelurahan").val(ui.item.value);
       $("#id_kelurahan").val(ui.item.id);
+      $("#kode_kelurahan").val(ui.item.kode);
       id = $("#id_kelurahan").val();
       letDropDown(id, "kelurahan");
 
@@ -28,6 +29,7 @@ $(function() {
     select: function(event, ui) {
       $("#tags_kecamatan").val(ui.item.value);
       $("#id_kecamatan").val(ui.item.id);
+      $("#kode_kecamatan").val(ui.item.kode);
       id = $("#id_kecamatan").val();
       letDropDown(id, "kecamatan");
 
@@ -41,6 +43,7 @@ $(function() {
     select: function(event, ui) {
       $("#tags_kabkota").val(ui.item.value);
       $("#id_kabkota").val(ui.item.id);
+      $("#kode_kabkota").val(ui.item.kode);
       id = $("#id_kabkota").val();
       letDropDown(id, "kabkota");
 
@@ -54,6 +57,7 @@ $(function() {
     select: function(event, ui) {
       $("#tags_provinsi").val(ui.item.value);
       $("#id_provinsi").val(ui.item.id);
+      $("#kode_provinsi").val(ui.item.kode);
       id = $("#id_provinsi").val();
       letDropDown(id, "provinsi");
 
@@ -82,7 +86,7 @@ function numberFormat(number) {
 function letDropDown(id, filter) {
   let dropdown_tags = $("#selectTPS");
   dropdown_tags.empty();
-  dropdown_tags.append('<option selected="true" disabled>TPSS</option>');
+  dropdown_tags.append("<option value>TPS</option>");
 
   $.getJSON(
     host + "/app/api/dpt/ajax.php?action=getTPS&filter=" + filter + "&id=" + id,
@@ -98,21 +102,15 @@ function letDropDown(id, filter) {
   );
 }
 
-// setInterval(function sendReq() {
+// function sendReq() {
 //   $.ajax({
-//     url: host + "/app/api/ping.php"
-//   })
-// }, 300000);
-
-function sendReq() {
-  $.ajax({
-    url: host + "/app/api/ping.php",
-    success: function() {
-      //  operation on return value
-      $(".fa-refresh").hide();
-    },
-    complete: function(data) {
-      setTimeout(sendReq, 300000);
-    }
-  });
-}
+//     url: host + "/app/api/ping.php",
+//     success: function() {
+//       //  operation on return value
+//       $(".fa-refresh").hide();
+//     },
+//     complete: function(data) {
+//       setTimeout(sendReq, 300000);
+//     }
+//   });
+// }

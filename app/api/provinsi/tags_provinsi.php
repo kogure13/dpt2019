@@ -7,7 +7,7 @@ $connString = $db->getConnString();
 
 $term = trim(strip_tags($_GET['term']));
 
-$qstring = "SELECT id_provinsi, nama_provinsi FROM provinsi";
+$qstring = "SELECT * FROM provinsi";
 
 $qstring .= " WHERE nama_provinsi LIKE '%" . $term . "%'";
 // echo $qstring;
@@ -16,6 +16,7 @@ $qstring .= " WHERE nama_provinsi LIKE '%" . $term . "%'";
 $result = mysqli_query($connString, $qstring) or die();
 while ($row = mysqli_fetch_assoc($result)) {
     $json[] = array(
+        'kode' => $row['kode_provinsi'],
         'label' => $row['nama_provinsi'],
         'value' => ucwords($row['nama_provinsi']),
         'id' => $row['id_provinsi']
