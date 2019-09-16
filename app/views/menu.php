@@ -13,12 +13,10 @@
                 </a>
             </div>
         </div>
-
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
             <?php
-
             $db = new DBobj;
             $connString = $db->getConnString();
 
@@ -40,7 +38,7 @@
                 if ($num_row_sub > 0) {
                     $judul .= '<span class="pull-right-container">
                     <i class="fa fa-angle-left pull-right"></i>
-                </span>';
+                    </span>';
                     echo '<li class="treeview">';
                     anchor(
                         $anchor = [
@@ -81,7 +79,6 @@
                     echo '</li>';
                 }
             }
-
             ?>
         </ul>
     </section>

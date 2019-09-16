@@ -119,7 +119,7 @@
                                         <input type="hidden" name="action" id="action" value="cariDPT">
                                             <?php
                                             button($attr = [
-                                                'type="submit"', 'id="btnCari"', 'class="btnCari btn btn-sm bg-aqua"',
+                                                'type="button"', 'id="btnCari"', 'class="btnCari btn btn-sm bg-aqua"',
                                             ], $data = ['<i class="fa fa-search"></i> Cari'])
                                             ?>
                                         </span>
@@ -129,10 +129,9 @@
                         </form> <!-- end form -->
 
                         <!-- Table Data DPT -->
-                        <table id="lookup" class="table table-responsive table-condensed table-hover table-striped nowrap" style="width: 100%">
+                        <table id="lookup" class="table table-bordered table-responsive table-condensed table-hover table-striped nowrap" style="width: 100%">
                             <thead>
                                 <tr>
-                                    <th class="nosort">#</th>
                                     <th>Nama Lengkap</th>
                                     <th>NIK</th>
                                     <th>Alamat</th>

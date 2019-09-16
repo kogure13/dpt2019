@@ -14,9 +14,9 @@
     <link rel="stylesheet" href="<?= BASE_URL ?>public/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>public/bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>public/bower_components/Ionicons/css/ionicons.min.css">
-    <!-- <link rel="stylesheet" href="<?= BASE_URL ?>public/bower_components/datatables.net-bs/css/dataTables.bootstrap.css"> -->
-    <link rel="stylesheet"
-        href="<?= BASE_URL ?>public/bower_components/datatables.net-bs/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>public/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <!-- <link rel="stylesheet"
+        href="<?= BASE_URL ?>public/bower_components/datatables.net-bs/css/jquery.dataTables.min.css"> -->
     <link rel="stylesheet"
         href="<?= BASE_URL ?>public/bower_components/datatables.net-bs/css/responsive.dataTables.min.css">
 
@@ -37,19 +37,6 @@
 <body class="fixed hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
         <header class="main-header">
-            <!-- Logo -->
-            <a href="index.php" class="logo hidden-xs">
-                <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini">
-                    <b>e-DPT</b>
-                </span>
-                <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg">
-                    <!-- <img src="<?= BASE_URL ?>public/assets/images/logo-lg.png" style="height: 43px"> -->
-                    <b>Aplikasi</b> e-<b>DPT</b>
-                </span>
-            </a>
-
             <nav class="navbar navbar-static-top">
                 <!-- Sidebar toggle button-->
                 <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
