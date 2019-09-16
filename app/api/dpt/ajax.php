@@ -112,7 +112,7 @@ class fetchData
         $where .= " or kk.kode_kabupaten_kota = " . $kode_filter;
         $where .= " or kc.kode_kecamatan = " . $kode_filter;
         $where .= " or k.kode_kelurahan = " . $kode_filter . ")";
-        $where .= " and (d.nik like '" . $requestData['niknama'] . "%' or d.nama like '" . $requestData['niknama'] . "%') ";
+        $where .= " and (d.nik like '%" . $requestData['niknama'] . "%' or d.nama like '%" . $requestData['niknama'] . "%') ";
         if (!empty($requestData['tps']))
             $where .= " and d.tps = '" . $requestData['tps'] . "'";
 

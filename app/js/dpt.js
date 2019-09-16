@@ -23,6 +23,7 @@ $(function() {
     processing: true,
     order: false,
     searching: false,
+    lengthChange: false,
     pageLength: 20,
     language: {
       sSearch: "_INPUT_",
