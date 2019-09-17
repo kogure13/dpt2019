@@ -21,7 +21,7 @@ $(function() {
     responsive: true,
     serverSide: true,
     processing: true,
-    order: false,
+    ordering: false,
     searching: false,
     lengthChange: false,
     pageLength: 20,

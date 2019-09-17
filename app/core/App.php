@@ -120,6 +120,7 @@ class Crud
 
 class Main extends Controller
 {
+    
 
     function getPage()
     {
@@ -152,25 +153,64 @@ class Main extends Controller
         $this->view('login');
     }
 
-    function actBtn($id, $role)
+    public function actInterview($id)
     {
-        switch ($role) {
-            case '1':
-                return '<div class="btn-group" role="group" aria-label="hidden">
-                <a href="#" id="' . $id . '" class="btn btn-xs btn-success btn-act" data-original-title="Edit">
-                <i class="fa fa-pencil"></i>
-                </a>
-                <a href="#" id="' . $id . '" class="btn btn-xs btn-danger btn-act" data-original-title="Delete">
-                <i class="fa fa-trash-o"></i>
-                </a>
-            </div>';
-                break;
-            case '2':
-                break;
-            case '3':
-                break;
-            case '4':
-                break;
+        $db = new DBobj();
+        $connString = $db->getConnString();
+        $cek = new Interview($connString);
+        
+        $actBtn = '<div class="form-group text-center">';
+        $actBtn .= '<select name="modalAct" id="modalAct" class="modalAct">';
+        $actBtn .= '<option value="">Action</option>';
+        $actBtn .= '<option value="edit" data-id="'.$id.'">Edit</option>';
+        if ($cek->cekMemilih($id) == 0) {
+            $actBtn .= '<option value="interview" data-id="'.$id.'">Interview</option>';
         }
+        $actBtn .= '</select>';
+        $actBtn .= '</div>';
+
+        return $actBtn;
+    }
+}
+
+class Interview {
+    protected $conn;
+
+    public function __construct($connString)
+    {
+        $this->conn = $connString;
+    }
+
+    public function cekMemilih($id)
+    {
+        $sql = 'select memilih ';
+        $sql .= 'from dpt ';
+        $sql .= "where id_dpt = '$id'";
+        $query = mysqli_query($this->conn, $sql) or die('data not found');
+        $result = mysqli_fetch_assoc($query);
+
+        return $result['memilih'];
+    }
+
+    public function getIdPemilih($id)
+    {
+        $sql = 'select id ';
+        $sql .= 'from m_interview ';
+        $sql .= "where pemilih_id = '$id'";
+        $query = mysqli_query($this->conn, $sql) or die('data not found');
+        $result = mysqli_fetch_assoc($query);
+
+        return $result['id'];
+    }
+
+    public function getPemilihId($id)
+    {
+        $sql = 'select pemilih_id ';
+        $sql .= 'from m_interview ';
+        $sql .= "where id = '$id'";
+        $query = mysqli_query($this->conn, $sql) or die('data not found');
+        $result = mysqli_fetch_assoc($query);
+
+        return $result['pemilih_id'];
     }
 }

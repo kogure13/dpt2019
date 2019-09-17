@@ -6,6 +6,7 @@ $db = new DBobj();
 $connString = $db->getConnString();
 $crud = new Crud($connString);
 $fetchData = new fetchData($connString);
+$userUI = new Main();
 
 $requestData = $_REQUEST;
 $requestData = $_POST;
@@ -68,7 +69,7 @@ switch ($action) {
         break;
     case 'cariDPT':
         $columns = [];
-        echo json_encode($fetchData->getDataTable($requestData, $columns, $crud));
+        echo json_encode($fetchData->getDataTable($requestData, $columns, $crud, $userUI));
         // echo $requestData['niknama'];
         break;
 }
@@ -94,7 +95,7 @@ class fetchData
         return $json_data;
     }
 
-    public function getDataTable($requestData, $col, $crud)
+    public function getDataTable($requestData, $col, $crud, $userUI)
     {
         $kode_filter = (!empty($requestData['kode_provinsi'])) ? $requestData['kode_provinsi'] : 0;
         $kode_filter = (!empty($requestData['kode_kabkota'])) ? $requestData['kode_kabkota'] : $kode_filter;
@@ -102,7 +103,7 @@ class fetchData
         $kode_filter = (!empty($requestData['kode_kelurahan'])) ? $requestData['kode_kelurahan'] : $kode_filter;
 
         // $fieldCOunt = ['count(*) as count'];
-        $field = "select d.nik, d.nama, d.alamat, d.jenis_kelamin, d.tps, k.nama_kelurahan, kc.nama_kecamatan, kk.nama_kabupaten_kota, p.nama_provinsi ";
+        $field = "select d.id_dpt, d.nik, d.nama, d.alamat, d.jenis_kelamin, d.tps, k.nama_kelurahan, kc.nama_kecamatan, kk.nama_kabupaten_kota, p.nama_provinsi ";
         $from = "dpt d ";
         $join = "JOIN kelurahan k on k.id_kelurahan = d.id_kelurahan ";
         $join .= "JOIN kecamatan kc on kc.id_kecamatan = k.id_kecamatan ";
@@ -137,7 +138,7 @@ class fetchData
 
             $query = mysqli_query($this->conn, $sql) or die("error fetch search");
         } else {
-            $sql .= " order by tps, nama_kelurahan, nama_kecamatan, nama_kabupaten_kota, nama_provinsi";
+            $sql .= " order by tps, nama, nama_kelurahan, nama_kecamatan, nama_kabupaten_kota, nama_provinsi";
             $sql .= " limit " . $requestData['start'] . " , " . $requestData['length'] . " ";
             // echo $sql;
             // exit();
@@ -147,6 +148,7 @@ class fetchData
         while ($row = mysqli_fetch_assoc($query)) {
             $nesdata = [];
 
+            $nesdata[] = $userUI->actInterview($row['id_dpt']);
             $nesdata[] = strtoupper($row['nama']);
             $nesdata[] = strtoupper($row['nik']);
             $nesdata[] = strtoupper($row['alamat']);

@@ -132,6 +132,7 @@
                         <table id="lookup" class="table table-bordered table-responsive table-condensed table-hover table-striped nowrap" style="width: 100%">
                             <thead>
                                 <tr>
+                                    <th class="nosort">Act</th>
                                     <th>Nama Lengkap</th>
                                     <th>NIK</th>
                                     <th>Alamat</th>
