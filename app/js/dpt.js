@@ -17,7 +17,7 @@ $(function() {
   // dataTable
   var dTable = $("#lookup").dataTable({
     autoWidth: true,
-    scrollX: true, 
+    scrollX: true,
     responsive: true,
     serverSide: true,
     processing: true,
@@ -30,9 +30,18 @@ $(function() {
       sSearchPlaceholder: "Search...",
       sLengthMenu: "_MENU_"
     },
-    aoColumnDefs: [{ aTargets: ["nosort"], bSortable: false }],
+    aoColumnDefs: [
+      {
+        aTargets: ["nosort"],
+        bSortable: false
+      },
+      {
+        aTargets: [0, 5],
+        className: "text-center"
+      }
+    ],
     ajax: {
-      url: host+"/app/api/dpt/ajax.php",
+      url: host + "/app/api/dpt/ajax.php",
       type: "post",
       data: function(data) {
         data.kode_provinsi = $("#kode_provinsi").val();
@@ -42,28 +51,98 @@ $(function() {
         data.niknama = $("#niknama").val();
         data.tps = $("#selectTPS").val();
         data.action = $("#action").val();
-
-        console.log(data)
+        // console.log(data);
       }
+    },
+    fnDrawCallback: function(oSettings) {
+      $(".modalAct").on("change", function(e) {
+        e.preventDefault();
+        var com = $(this).val();
+        var id = $(this)
+          .find(":selected")
+          .attr("data-id");
+
+        if (com === "interview") {
+          $("#interviewModel").modal({
+            backdrop: "static",
+            keyboard: false
+          });
+
+          $("#modalTitleInterView").html("Form Kuisioner");
+          $("#actionInterview").val("interview");
+          $("#idPemilih").val(id);
+        } else if (com === "edit") {
+        }
+      });
     }
   });
   //end datatable
+
+  let dropdown_memilih = $(".memilih");
+  dropdown_memilih.empty();
+  dropdown_memilih.append(
+    '<option selected="true" disabled>Pilihan Anda di Pileg</option>'
+  );
+
+  let dropdown_tipe = $(".tipe");
+  dropdown_tipe.empty();
+  dropdown_tipe.append(
+    '<option selected="true" disabled>Tipe Pemilih</option>'
+  );
+
+  v_memilih = $.getJSON(host + "/app/api/dpt/ajax.php?action=pileg", function(data) {
+    $.each(data, function(key, entry) {
+      dropdown_memilih.append(
+        $("<option></option>")
+          .attr("value", entry.id_pilihan)
+          .text(entry.id_pilihan + ". " + entry.nama_pilihan)
+      );
+    });
+  });
+
+  v_tipe = $.getJSON(host + "/app/api/dpt/ajax.php?action=tipe", function(data) {
+    $.each(data, function(key, entry) {
+      dropdown_tipe.append(
+        $("<option></option>")
+          .attr("value", entry.id_tipe)
+          .text(entry.id_tipe + ". " + entry.nama_tipe)
+      );
+    });
+  });
 
   //search proses
   var dump = $(".btnCari").on("click", function(e) {
     e.preventDefault();
     dTable.api().ajax.reload();
-
-    // data = $("#formAdd").serializeArray();
-    // dTable = $("#lookup").dataTable();
-
-    // dump = $.ajax({
-    //   url: host + "/app/api/dpt/ajax.php",
-    //   type: "post",
-    //   data: data,
-    //   success: function(response) {
-        
-    //   }
-    // });
   });
+  //end search
+
+  //tambah pertanyaan
+  $("#btnAddInterview").click(function(e) {
+    e.preventDefault();
+    var div = $(document.createElement("div"))
+      .attr("id", "pertanyaan" + a)
+      .attr("class", "form-group clearClose");
+    var pertanyaan = '<div class="col-sm-6 col-xs-6">';
+    pertanyaan +=
+      '<input type="text" placeholder="Pertanyaan" name="pertanyaan[]" class="form-control">';
+    pertanyaan += "</div>";
+    var jawaban = '<div class="col-sm-6 col-xs-6">';
+    jawaban +=
+      '<div class="input-group"><input type="text" name="jawaban[]" placeholder="Jawaban" class="form-control">';
+    var tombol =
+      '<div class="input-group-btn"><a href="#" class="btn btn-sm btn-danger bg-red-active" onclick="hapus(' +
+      a +
+      ')">';
+    tombol += '<i class="fa fa-trash fa-fw "></i></a></div></div></div>';
+
+    div.after().html(pertanyaan + jawaban + tombol);
+    div.appendTo("#qa");
+    a++;
+  });
+  //end tambah pertanyaan
 });
+
+function hapus(id) {
+  $("#pertanyaan" + id).remove();
+}

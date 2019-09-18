@@ -7,6 +7,8 @@ var items_kecamatan;
 var items_kelurahan;
 var items_tps;
 
+var a = 4;
+
 $(function() {
   // sendReq();
 

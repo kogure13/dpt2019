@@ -18,7 +18,6 @@
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<!-- <script src="<?= BASE_URL ?>public/plugins/jQueryUI/jquery-ui.min.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script>
 $.widget.bridge('uibutton', $.ui.button);

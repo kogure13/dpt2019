@@ -29,3 +29,12 @@
 .ui-helper-hidden-accessible {
   display: none;
 }
+
+.modal-content .modal-header {
+  border-bottom: none;
+  padding-top: 15px;
+  padding-right: 24px;
+  padding-bottom: 0;
+  padding-left: 24px;
+  background-color: #ddd;
+}

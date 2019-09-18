@@ -13,6 +13,7 @@ $qstring .= " join kabupaten_kota kk on kk.id_kabupaten_kota = k.id_kabupaten_ko
 $qstring .= " join provinsi p on p.id_provinsi = kk.id_provinsi";
 $qstring .= " WHERE kl.nama_kelurahan LIKE '%" . $term . "%' or k.nama_kecamatan LIKE '%" . $term . "%' or";
 $qstring .= " kk.nama_kabupaten_kota LIKE '%" . $term . "%' or p.nama_provinsi LIKE '%" . $term . "%'";
+$qstring .= " order by kl.nama_kelurahan, k.nama_kecamatan, kk.nama_kabupaten_kota, p.nama_provinsi limit 20";
 // echo $qstring; exit();
 //query database untuk mengecek tabel Country 
 $result = mysqli_query($connString, $qstring) or die();
