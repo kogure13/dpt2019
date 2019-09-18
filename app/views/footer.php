@@ -30,6 +30,7 @@ $.material.init();
 </script>
 
 <script src="<?= BASE_URL ?>public/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/1.0.7/js/dataTables.responsive.min.js"></script>
 <script src="<?= BASE_URL ?>public/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
 <script src="<?= BASE_URL ?>public/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>

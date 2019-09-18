@@ -13,7 +13,7 @@ $(function() {
       .hide();
     $(targetBox).show();
   });
-
+  
   // dataTable
   var dTable = $("#lookup").dataTable({
     autoWidth: true,
