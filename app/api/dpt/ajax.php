@@ -72,8 +72,12 @@ switch ($action) {
         echo json_encode($fetchData->getDataTable($requestData, $columns, $crud, $userUI));
         // echo $requestData['niknama'];
         break;
-        case 'pileg': $fetchData->getPileg($crud); break;
-        case 'tipe': $fetchData->getTipe($crud); break;
+    case 'pileg':
+        $fetchData->getPileg($crud);
+        break;
+    case 'tipe':
+        $fetchData->getTipe($crud);
+        break;
 }
 
 class fetchData
@@ -178,25 +182,27 @@ class fetchData
         // echo json_encode($json_data);
     }
 
-    public function getPileg($crud) {
+    public function getPileg($crud)
+    {
         $field = ['*'];
         $from = "kategori_pilihan";
         $join = $where = $order = "";
 
         $read = $crud->read($field, $from, $join, $where, $order);
-        while($row = mysqli_fetch_assoc($read))
-        $data[] = $row;
+        while ($row = mysqli_fetch_assoc($read))
+            $data[] = $row;
         echo json_encode($data);
     }
 
-    public function getTipe($crud) {
+    public function getTipe($crud)
+    {
         $field = ['*'];
         $from = "tipe_pemilih";
         $join = $where = $order = "";
 
         $read = $crud->read($field, $from, $join, $where, $order);
-        while($row = mysqli_fetch_assoc($read))
-        $data[] = $row;
+        while ($row = mysqli_fetch_assoc($read))
+            $data[] = $row;
         echo json_encode($data);
     }
 }

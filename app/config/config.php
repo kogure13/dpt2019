@@ -32,7 +32,7 @@ define('CP_SHORT', 'JSI');
 define('CP_TAGS', 'Jasa Konsultan Politik');
 
 
-define('HASH_KEY', '');
+define('HASH_KEY', 'NDJS3289JSKS190JISJI');
 
 $js = (isset($_GET['page']) ? $_GET['page'] : '');
 if ($js == null) {

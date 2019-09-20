@@ -78,38 +78,6 @@ $(function() {
   });
   //end datatable
 
-  let dropdown_memilih = $(".memilih");
-  dropdown_memilih.empty();
-  dropdown_memilih.append(
-    '<option selected="true" disabled>Pilihan Anda di Pileg</option>'
-  );
-
-  let dropdown_tipe = $(".tipe");
-  dropdown_tipe.empty();
-  dropdown_tipe.append(
-    '<option selected="true" disabled>Tipe Pemilih</option>'
-  );
-
-  v_memilih = $.getJSON(host + "/app/api/dpt/ajax.php?action=pileg", function(data) {
-    $.each(data, function(key, entry) {
-      dropdown_memilih.append(
-        $("<option></option>")
-          .attr("value", entry.id_pilihan)
-          .text(entry.id_pilihan + ". " + entry.nama_pilihan)
-      );
-    });
-  });
-
-  v_tipe = $.getJSON(host + "/app/api/dpt/ajax.php?action=tipe", function(data) {
-    $.each(data, function(key, entry) {
-      dropdown_tipe.append(
-        $("<option></option>")
-          .attr("value", entry.id_tipe)
-          .text(entry.id_tipe + ". " + entry.nama_tipe)
-      );
-    });
-  });
-
   //search proses
   var dump = $(".btnCari").on("click", function(e) {
     e.preventDefault();
