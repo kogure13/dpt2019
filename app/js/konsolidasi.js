@@ -31,22 +31,7 @@ $(function() {
       sSearchPlaceholder: "Search...",
       sLengthMenu: "_MENU_"
     },
-    aoColumnDefs: [{ aTargets: ["nosort"], bSortable: false }],
-    ajax: {
-      url: host + "/app/api/konsolidasi/ajax.php",
-      type: "post",
-      data: function(data) {
-        data.kode_provinsi = $("#kode_provinsi").val();
-        data.kode_kabkota = $("#kode_kabkota").val();
-        data.kode_kecamatan = $("#kode_kecamatan").val();
-        data.kode_kelurahan = $("#kode_kelurahan").val();
-        data.niknama = $("#niknama").val();
-        data.tps = $("#selectTPS").val();
-        data.action = $("#action").val();
-
-        console.log(data);
-      }
-    }
+    aoColumnDefs: [{ aTargets: ["nosort"], bSortable: false }]
   });
   //end datatable
 

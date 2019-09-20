@@ -31,7 +31,7 @@
                     <div class="box-body">
                         <div class="input-group">
                             <div class="input-group-btn">
-                                <button type="button" class="btn btn-aqua bg-aqua">Filter <div class="ripple-container"></div></button>
+                                <button type="button" id="filter" class="btn btn-aqua bg-aqua">Filter <div class="ripple-container"></div></button>
                             </div>
                             <!-- /btn-group -->
                             <div class="form-group is-empty"><input type="text" id="filter" class="form-control" disabled="disabled" placeholder="Filter Data"></div>
