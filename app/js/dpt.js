@@ -13,7 +13,7 @@ $(function() {
       .hide();
     $(targetBox).show();
   });
-  
+
   // dataTable
   var dTable = $("#lookup").dataTable({
     autoWidth: true,
@@ -90,25 +90,31 @@ $(function() {
     e.preventDefault();
     var div = $(document.createElement("div"))
       .attr("id", "pertanyaan" + a)
-      .attr("class", "form-group clearClose");
+      .attr("class", "clearClose");
     var pertanyaan = '<div class="col-sm-6 col-xs-6">';
     pertanyaan +=
       '<input type="text" placeholder="Pertanyaan" name="pertanyaan[]" class="form-control">';
     pertanyaan += "</div>";
+    
     var jawaban = '<div class="col-sm-6 col-xs-6">';
     jawaban +=
       '<div class="input-group"><input type="text" name="jawaban[]" placeholder="Jawaban" class="form-control">';
     var tombol =
-      '<div class="input-group-btn"><a href="#" class="btn btn-sm btn-danger bg-red-active" onclick="hapus(' +
+      '<div class="input-group-btn"><a href="#" class="btn btn-danger" onclick="hapus(' +
       a +
       ')">';
-    tombol += '<i class="fa fa-trash fa-fw "></i></a></div></div></div>';
+    tombol += '<i class="fa fa-times fa-fw"></i></a></div></div></div>';
 
     div.after().html(pertanyaan + jawaban + tombol);
     div.appendTo("#qa");
     a++;
   });
   //end tambah pertanyaan
+
+  //submit proses
+  $("#btnSubmitInterview").on("click", function(e){
+    alert("ok");
+  });
 });
 
 function hapus(id) {

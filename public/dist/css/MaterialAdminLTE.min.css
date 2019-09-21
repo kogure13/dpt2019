@@ -1834,7 +1834,7 @@ fieldset[disabled] .btn.btn-social-icon.btn-yahoo.focus {
 .main-sidebar,
 .left-side,
 .control-sidebar {
-  padding-top: 0px;
+  /* padding-top: 60px; */
   /* box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 .main-sidebar .user-panel {

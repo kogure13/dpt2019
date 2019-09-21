@@ -33,19 +33,19 @@
                         <!-- Span test -->
                         <strong> Rekap Konsolidasi </strong>
                         <hr style="margin: 5px 0; border: 1px solid #ddd;">
-                        <span>Total data yang ditemukan: <b id="tdyd" class="pkdefault"></b> Orang</span>
+                        <span>Total data yang ditemukan: <b id="tdyd" class="pkdefault">0</b> Orang</span>
                         <br>
-                        <span>Pemilih yang dikunjungi: <b id="pyd" class="pkdefault"></b> Orang</span>
+                        <span>Pemilih yang dikunjungi: <b id="pyd" class="pkdefault">0</b> Orang</span>
                         <hr style="margin: 5px 0; border: 1px solid #ddd;">
                         <ul style="list-style: none; padding-left: 0px">
-                            <li>Pemilih Kategori A &#40;PARTAI SAYA DAN CALEG SAYA&#41;: <b id="pka" class="pkdefault"></b> Orang</li>
-                            <li>Pemilih Kategori B &#40;PARTAI SAYA NAMUN BELUM ADA CALEG&#41;: <b id="pkb" class="pkdefault"></b> Orang</li>
-                            <li>Pemilih Kategori C &#40;TIDAK TAHU &#47; TIDAK MENJAWAB&#41;: <b id="pkc" class="pkdefault"></b> Orang</li>
-                            <li>Pemilih Kategori D &#40;PARTAI SAYA NAMUN CALEG LAIN&#41;: <b id="pkd" class="pkdefault"></b> Orang</li>
-                            <li>Pemilih Kategori E &#40;PARTAI LAIN DAN CALEG LAIN&#41;: <b id="pke" class="pkdefault"></b> Orang</li>
+                            <li>Pemilih Kategori A &#40;PARTAI SAYA DAN CALEG SAYA&#41;: <b id="pka" class="pkdefault">0</b> Orang</li>
+                            <li>Pemilih Kategori B &#40;PARTAI SAYA NAMUN BELUM ADA CALEG&#41;: <b id="pkb" class="pkdefault">0</b> Orang</li>
+                            <li>Pemilih Kategori C &#40;TIDAK TAHU &#47; TIDAK MENJAWAB&#41;: <b id="pkc" class="pkdefault">0</b> Orang</li>
+                            <li>Pemilih Kategori D &#40;PARTAI SAYA NAMUN CALEG LAIN&#41;: <b id="pkd" class="pkdefault">0</b> Orang</li>
+                            <li>Pemilih Kategori E &#40;PARTAI LAIN DAN CALEG LAIN&#41;: <b id="pke" class="pkdefault">0</b> Orang</li>
                         </ul>
                         <hr style="margin: 5px 0; border: 1px solid #ddd">
-                        <span>Potensi Pemilih : <b id="pp" class="pkdefault"></b> Orang</span>
+                        <span>Potensi Pemilih : <b id="pp" class="pkdefault">0</b> Orang</span>
                         <span id="spanTest"></span>
                     </div>
                 </div>

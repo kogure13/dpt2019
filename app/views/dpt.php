@@ -171,14 +171,14 @@
                         <input type="hidden" value="<?= date('Y-m-d H:i:s'); ?>" name="waktu" id="waktu">
                     </div>
                     <div class="row">
-                        <div class="col-xs-6">
+                        <div class="col-xs-12 col-sm-6">
                             <div class="form-group">
                                 <select name="tipe_pemilih" id="tipe_pemilih" class="tipe form-control">
                                     <option value="">Tipe Pemilih</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="col-xs-6">
+                        <div class="col-xs-12 col-sm-6">
                             <div class="form-group">
                                 <select name="memilih" id="memilih" class="memilih form-control">
                                 <option value="">Pilihan Anda Di Pileg</option>
@@ -187,16 +187,15 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-8">
+                        <div class="col-xs-12 col-sm-8">
                             <div class="input-group">
                             <div class="form-group is-empty">
                                 <input type="text" name="banyak_pemilih" id="banyak_pemilih" class="form-control" placeholder="Jumlah Pemilih Dalam Satu Rumah">
                             </div>
                             <span class="input-group-addon">Orang</span>
                             </div>
-                            
                         </div>
-                        <div class="col-xs-4">
+                        <div class="col-xs-12 col-sm-4">
                             <div class="form-group">
                                 <input type="text" name="kontak" id="kontak" class="form-control" placeholder="Nomor Kontak">
                             </div>
@@ -210,7 +209,7 @@
                     <div class="row">
                         <div class="col-sm-12 col-xs-12">
                         <button type="button" id="btnAddInterview" class="btn btn-sm bg-gray">
-                                <i class="fa fa-edit fa-fw"></i> Tambah Pertanyaan
+                                <i class="fa fa-plus fa-fw"></i> Pertanyaan
                             </button>
                             <button type="button" id="btnCancelInterview" class="btn btn-sm btn-danger bg-red" data-dismiss="modal">
                                 <i class="fa fa-times fa-fw"></i> Close

@@ -38,3 +38,10 @@
   padding-left: 24px;
   background-color: #ddd;
 }
+
+.box-rkp {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-image: url("../../assets/images/indonesia_map.png");
+  display: block
+}

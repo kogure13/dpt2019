@@ -479,7 +479,7 @@ a:focus {
 
 @media (max-width: 767px) {
   .main-sidebar {
-    padding-top: 100px;
+    padding-top: 0px;
   }
 }
 
@@ -507,6 +507,7 @@ a:focus {
     -ms-transform: translate(0, 0);
     -o-transform: translate(0, 0);
     transform: translate(0, 0);
+    padding-top: 60px;
   }
 }
 

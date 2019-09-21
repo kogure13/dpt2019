@@ -68,7 +68,7 @@
         <!--End Section DPT -->
         <div class="row">
             <div class="col-xs-12">
-                <div class="box">
+                <div class="box box-rkp">
                     <div class="box-header">
                         <h3 class="box-title">
                             Rekap Data
