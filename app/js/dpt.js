@@ -70,7 +70,7 @@ $(function() {
 
           $("#modalTitleInterView").html("Form Kuisioner");
           $("#actionInterview").val("interview");
-          $("#idPemilih").val(id);
+          $("#kodePemilih").val(id);
         } else if (com === "edit") {
         }
       });
@@ -91,7 +91,7 @@ $(function() {
     var div = $(document.createElement("div"))
       .attr("id", "pertanyaan" + a)
       .attr("class", "clearClose");
-    var pertanyaan = '<div class="col-sm-6 col-xs-6">';
+    var pertanyaan = '<div class="row"><div class="col-sm-6 col-xs-6">';
     pertanyaan +=
       '<input type="text" placeholder="Pertanyaan" name="pertanyaan[]" class="form-control">';
     pertanyaan += "</div>";
@@ -103,7 +103,7 @@ $(function() {
       '<div class="input-group-btn"><a href="#" class="btn btn-danger" onclick="hapus(' +
       a +
       ')">';
-    tombol += '<i class="fa fa-times fa-fw"></i></a></div></div></div>';
+    tombol += '<i class="fa fa-times fa-fw"></i></a></div></div></div></div>';
 
     div.after().html(pertanyaan + jawaban + tombol);
     div.appendTo("#qa");
@@ -113,7 +113,9 @@ $(function() {
 
   //submit proses
   $("#btnSubmitInterview").on("click", function(e){
-    alert("ok");
+    data = $("#formInterview").serializeArray();
+    console.log(data)
+
   });
 });
 

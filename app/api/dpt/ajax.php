@@ -109,7 +109,7 @@ class fetchData
         $kode_filter = (!empty($requestData['kode_kelurahan'])) ? $requestData['kode_kelurahan'] : $kode_filter;
 
         // $fieldCOunt = ['count(*) as count'];
-        $field = "select d.id_dpt, d.nik, d.nama, d.alamat, d.jenis_kelamin, d.tps, k.nama_kelurahan, kc.nama_kecamatan, kk.nama_kabupaten_kota, p.nama_provinsi ";
+        $field = "select d.id_dpt, d.kode_dpt, d.nik, d.nama, d.alamat, d.jenis_kelamin, d.tps, k.nama_kelurahan, kc.nama_kecamatan, kk.nama_kabupaten_kota, p.nama_provinsi ";
         $from = "dpt d ";
         $join = "JOIN kelurahan k on k.id_kelurahan = d.id_kelurahan ";
         $join .= "JOIN kecamatan kc on kc.id_kecamatan = k.id_kecamatan ";
@@ -154,7 +154,7 @@ class fetchData
         while ($row = mysqli_fetch_assoc($query)) {
             $nesdata = [];
 
-            $nesdata[] = $userUI->actInterview($row['id_dpt']);
+            $nesdata[] = $userUI->actInterview($row['kode_dpt']);
             $nesdata[] = strtoupper($row['nama']);
             $nesdata[] = strtoupper($row['nik']);
             $nesdata[] = strtoupper($row['alamat']);

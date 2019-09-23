@@ -164,10 +164,7 @@
                 <div class="modal-body">
                     <div class="">
                         <input type="hidden" value="interview" name="action" id="actionInterview">
-                        <input type="hidden" value="0" name="idPemilih" id="idPemilih">
-                        <input type="hidden" value="0" name="kotaInterview" id="kotaInterview">
-                        <input type="hidden" value="0" name="kecamatanInterview" id="kecamatanInterview">
-                        <input type="hidden" value="0" name="kelurahanInterview" id="kelurahanInterview">
+                        <input type="hidden" value="0" name="kodePemilih" id="kodePemilih">
                         <input type="hidden" value="<?= date('Y-m-d H:i:s'); ?>" name="waktu" id="waktu">
                     </div>
                     <div class="row">
@@ -202,7 +199,7 @@
                         </div>
                     </div>
 
-                    <div id="qa" class="row"></div>
+                    <div id="qa"></div>
                 </div>
 
                 <div class="modal-footer">
@@ -214,7 +211,7 @@
                             <button type="button" id="btnCancelInterview" class="btn btn-sm btn-danger bg-red" data-dismiss="modal">
                                 <i class="fa fa-times fa-fw"></i> Close
                             </button>
-                            <button type="submit" id="btnSubmitInterview" class="btn btn-sm btn-primary bg-blue-active">
+                            <button type="button" id="btnSubmitInterview" class="btn btn-sm btn-primary bg-blue-active">
                                 <i class="fa fa-save fa-fw"></i> Simpan
                             </button>
                         </div>
