@@ -185,7 +185,7 @@ class Interview {
     {
         $sql = 'select memilih ';
         $sql .= 'from dpt ';
-        $sql .= "where id_dpt = '$id'";
+        $sql .= "where kode_dpt = '$id'";
         $query = mysqli_query($this->conn, $sql) or die('data not found');
         $result = mysqli_fetch_assoc($query);
 

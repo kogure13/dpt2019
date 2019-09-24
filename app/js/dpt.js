@@ -95,7 +95,7 @@ $(function() {
     pertanyaan +=
       '<input type="text" placeholder="Pertanyaan" name="pertanyaan[]" class="form-control">';
     pertanyaan += "</div>";
-    
+
     var jawaban = '<div class="col-sm-6 col-xs-6">';
     jawaban +=
       '<div class="input-group"><input type="text" name="jawaban[]" placeholder="Jawaban" class="form-control">';
@@ -112,11 +112,23 @@ $(function() {
   //end tambah pertanyaan
 
   //submit proses
-  $("#btnSubmitInterview").on("click", function(e){
+  $("#formInterview").on("click", function(e) {
     data = $("#formInterview").serializeArray();
-    console.log(data)
-
+    
+    dump = $.ajax({
+      url: host + "/app/api/dpt/ajax.php?action=interview",
+      type: "post",
+      dataType: "json",
+      data: data,
+      success: function(data) {
+        $("#interviewModel").modal("hide");
+        $("#formInterview").trigger("reset");
+        $("select").val("");
+        dTable.ajax.reload();
+      }
+    });
   });
+  //end submit proses
 });
 
 function hapus(id) {

@@ -3,13 +3,13 @@ session_start();
 require_once '../../init.php';
 
 $db = new DBobj();
+$userUI = new Main();
 $connString = $db->getConnString();
 $crud = new Crud($connString);
 $fetchData = new fetchData($connString);
-$userUI = new Main();
 
 $requestData = $_REQUEST;
-$requestData = $_POST;
+// $requestData = $_POST;
 $action = (isset($requestData['action'])) ? $requestData['action'] : '';
 $action = (isset($_POST['action'])) ? $_POST['action'] : $action;
 $action = (isset($_GET['action'])) ? $_GET['action'] : $action;
@@ -77,6 +77,43 @@ switch ($action) {
         break;
     case 'tipe':
         $fetchData->getTipe($crud);
+        break;
+    case 'interview':
+        $table_master_interview = "master_interview";
+        $field = ['kode_dpt', 'id_pilihan', 'id_tipe_pemilih', 'nomor_kontak', 'banyak_pemilih', 'kode_caleg'];
+        $data = [
+            mysqli_real_escape_string($connString, $_POST['kodePemilih']),
+            mysqli_real_escape_string($connString, $_POST['memilih']),
+            mysqli_real_escape_string($connString, $_POST['tipe_pemilih']),
+            mysqli_real_escape_string($connString, $_POST['kontak']),
+            mysqli_real_escape_string($connString, $_POST['banyak_pemilih']),
+            mysqli_real_escape_string($connString, 'ms-001')
+        ];
+
+        $msg = $crud->create($table_master_interview, $field, $data);
+        if(isset($_POST['pertanyaan'])) {
+            $table_detail_interview = "detail_interview";
+            $field = ['kode_dpt', 'pertanyaan', 'jawaban'];
+            $count = count($_POST['pertanyaan']);
+            for($i=0; $i<$count; $i++) {
+                $data = [
+                    mysqli_real_escape_string($connString, $_POST['kodePemilih']),
+                    mysqli_real_escape_string($connString, $_POST['pertanyaan'][$i]),
+                    mysqli_real_escape_string($connString, $_POST['jawaban'][$i]),
+                ];
+
+                $msg = $crud->create($table_detail_interview, $field, $data);
+            }
+        }
+        //update dpt memilih 1
+        $data = [
+            'memilih' => mysqli_real_escape_string($connString, 1)
+        ];
+        $where = "kode_dpt = '".mysqli_real_escape_string($connString, $_POST['kodePemilih'])."'";
+        $crud->update("dpt", $data, $where);
+
+        return $msg;
+
         break;
 }
 

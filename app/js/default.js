@@ -149,3 +149,7 @@ function letDropDown(id, filter) {
 //     }
 //   });
 // }
+
+function ajaxAction() {
+  
+}

@@ -211,7 +211,7 @@
                             <button type="button" id="btnCancelInterview" class="btn btn-sm btn-danger bg-red" data-dismiss="modal">
                                 <i class="fa fa-times fa-fw"></i> Close
                             </button>
-                            <button type="button" id="btnSubmitInterview" class="btn btn-sm btn-primary bg-blue-active">
+                            <button type="submit" id="btnSubmitInterview" class="btn btn-sm btn-primary bg-blue-active">
                                 <i class="fa fa-save fa-fw"></i> Simpan
                             </button>
                         </div>
