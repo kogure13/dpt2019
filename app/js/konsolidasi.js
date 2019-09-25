@@ -1,17 +1,23 @@
 $(function() {
-  $("#filter").on("click", function(e){
+  $("#filter").on("click", function(e) {
     e.preventDefault();
     $("#filterModel").modal({
       backdrop: "static",
-            keyboard: false
+      keyboard: false
+    });
+    $("#modalTitle").html("Filter Konsolidasi");
+    $("#btnCancelFilter").click(function() {
+      var $form = $("#formFilter");
+      $form.trigger("reset");
+      $form.validate().resetForm();
+      $form.find(".error").removeClass("error");
     });
 
-    $("#modalTitle").html("Filter Konsolidasi");
     $("#idPilihFilter").change(function(e) {
       e.preventDefault();
       $form = $(".formClear");
       $form.val("");
-  
+
       $(".form-control,.btnCari").attr("disabled", false);
       var inputValue = $(this).val();
       var targetBox = $("#" + inputValue);
@@ -20,7 +26,7 @@ $(function() {
         .hide();
       $(targetBox).show();
     });
-  });// end filter
+  }); // end filter
 
   dTable = $("#lookup").dataTable({
     autoWidth: true,
@@ -29,7 +35,7 @@ $(function() {
     serverSide: true,
     processing: true,
     ordering: false,
-    lengthChange: false,
+    lengthChange: true,
     pageLength: 20,
     language: {
       sSearch: "_INPUT_",
@@ -47,7 +53,7 @@ $(function() {
       }
     ],
     ajax: {
-      url: host+"/app/api/konsolidasi/ajax.php",
+      url: host + "/app/api/konsolidasi/ajax.php",
       type: "post",
       data: function(data) {
         data.kode_provinsi = $("#kode_provinsi").val();
@@ -61,10 +67,32 @@ $(function() {
         data.kontak = $("#kontak").val();
       }
     }
-  });// end datatable
+  }); // end datatable
 
   //search proses
   $("#btnSubmitFilter").on("click", function(e) {
+    e.preventDefault();
     dTable.api().ajax.reload();
   });
+  // $("#formFilter").validate({
+  //   submitHandler: function(form) {
+  //     ajaxAction();
+  //   }
+  // });
+  //end search proses
 });
+
+function ajaxAction() {
+  data = $("#formFilter").serializeArray();
+  dTable = $("#lookup").dataTable();
+
+  v_dump = $.ajax({
+    url: host + "/app/api/konsolidasi/ajax.php",
+    data: data,
+    dataType: "json",
+    success: function(data) {
+      $("#filterModel").modal("hide");
+    }
+  });
+  console.log(v_dump);
+}

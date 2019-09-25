@@ -45,3 +45,10 @@
   background-image: url("../../assets/images/indonesia_map.png");
   display: block
 }
+
+.error {
+  color: #FF5733;
+}
+.error > label {
+  color: #FF5733;
+}

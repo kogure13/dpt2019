@@ -27,6 +27,7 @@
                                     <th>Pilihan Pileg</th>
                                     <th>Tipe Pemilih</th>
                                     <th>Kontak</th>
+                                    <th>TPS</th>
                                 </tr>
                             </thead>
                         </table>
@@ -34,8 +35,6 @@
                         <strong> Rekap Konsolidasi </strong>
                         <hr style="margin: 5px 0; border: 1px solid #ddd;">
                         <span>Total data yang ditemukan: <b id="tdyd" class="pkdefault">0</b> Orang</span>
-                        <br>
-                        <span>Pemilih yang dikunjungi: <b id="pyd" class="pkdefault">0</b> Orang</span>
                         <hr style="margin: 5px 0; border: 1px solid #ddd;">
                         <ul style="list-style: none; padding-left: 0px">
                             <li>Pemilih Kategori A &#40;PARTAI SAYA DAN CALEG SAYA&#41;: <b id="pka" class="pkdefault">0</b> Orang</li>
@@ -176,6 +175,7 @@
                         <div class="col-sm-4 col-xs-4">
                             <div class="form-group is-empty">
                                 <select name="kontak" id="kontak" class="kontak form-control">
+                                    <option>Pilih kontak</option>
                                     <option value="all">Kontak</option>
                                     <option value="0">Tidak Memberi Kontak</option>
                                     <option value="1">Memberi Kontak</option>

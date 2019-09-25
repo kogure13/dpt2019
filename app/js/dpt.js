@@ -1,6 +1,15 @@
 $(function() {
+  setInputFilter(document.getElementById("kontak"), function (value) {
+    return /^\d*$/.test(value);
+  });
+  setInputFilter(document.getElementById("banyak_pemilih"), function (value) {
+    return /^\d*$/.test(value);
+  });
+  //clear
+  $("input").attr("autocomplete", "off");
+
   $(".btnCari").attr("disabled", true);
-  var dump = $("#idPilihFilter").change(function(e) {
+  $("#idPilihFilter").change(function(e) {
     e.preventDefault();
     $form = $(".formClear");
     $form.val("");
@@ -79,7 +88,7 @@ $(function() {
   //end datatable
 
   //search proses
-  var dump = $(".btnCari").on("click", function(e) {
+  $(".btnCari").on("click", function(e) {
     e.preventDefault();
     dTable.api().ajax.reload();
   });
@@ -109,28 +118,70 @@ $(function() {
     div.appendTo("#qa");
     a++;
   });
+
+  $("#btnCancelInterview").click(function () {
+    var $form = $("#formInterview");
+    $form.trigger("reset");
+    $form.validate().resetForm();
+    $form.find(".error").removeClass("error");
+  });
   //end tambah pertanyaan
 
   //submit proses
-  $("#formInterview").on("click", function(e) {
-    data = $("#formInterview").serializeArray();
-    
-    dump = $.ajax({
-      url: host + "/app/api/dpt/ajax.php?action=interview",
-      type: "post",
-      dataType: "json",
-      data: data,
-      success: function(data) {
-        $("#interviewModel").modal("hide");
-        $("#formInterview").trigger("reset");
-        $("select").val("");
-        dTable.ajax.reload();
+  // $("#formInterview").on("click", function(e) {
+  //   data = $("#formInterview").serializeArray();
+
+  //   dump = $.ajax({
+  //     url: host + "/app/api/dpt/ajax.php?action=interview",
+  //     type: "post",
+  //     dataType: "json",
+  //     data: data,
+  //     success: function(data) {
+  //       $("#interviewModel").modal("hide");
+  //       $("#formInterview").trigger("reset");
+  //       $("select").val("");
+  //       dTable.ajax.reload();
+  //     }
+  //   });
+  // });
+  $("#formInterview").validate({
+    rules: {
+      memilih: {
+        required: true
+      },
+      tipe_pemilih: {
+        required: true
       }
-    });
+    },
+    messages: {},
+    submitHandler: function(form) {
+      ajaxAction();
+    }
   });
   //end submit proses
 });
 
 function hapus(id) {
   $("#pertanyaan" + id).remove();
+}
+
+function ajaxAction() {
+  data = $("#formInterview").serializeArray();
+  table = $("#lookup").DataTable();
+
+  var v_dump = $.ajax({
+    url: host + "/app/api/dpt/ajax.php",
+    type: "post",
+    dataType: "json",
+    data: data,
+    success: function(data, response) {
+      $("#interviewModel").modal("hide");
+      $("select").val("");
+      alert("Interview Saved!!");
+      table.ajax.reload();
+    },
+    error: function(text) {
+      alert("error, system");
+    }
+  });
 }
