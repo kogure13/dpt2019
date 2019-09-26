@@ -1,3 +1,8 @@
+var pka;
+var pkb;
+var pkc;
+var pp;
+
 $(function() {
   $("#filter").on("click", function(e) {
     e.preventDefault();
@@ -35,7 +40,7 @@ $(function() {
     serverSide: true,
     processing: true,
     ordering: false,
-    lengthChange: true,
+    lengthChange: false,
     pageLength: 20,
     language: {
       sSearch: "_INPUT_",
@@ -48,7 +53,7 @@ $(function() {
         bSortable: false
       },
       {
-        aTargets: [0, 4, 5],
+        aTargets: [4, 5],
         className: "text-center"
       }
     ],
@@ -56,12 +61,12 @@ $(function() {
       url: host + "/app/api/konsolidasi/ajax.php",
       type: "post",
       data: function(data) {
+        data.action = $("#action").val();
         data.kode_provinsi = $("#kode_provinsi").val();
         data.kode_kabkota = $("#kode_kabkota").val();
         data.kode_kecamatan = $("#kode_kecamatan").val();
         data.kode_kelurahan = $("#kode_kelurahan").val();
         data.tps = $("#selectTPS").val();
-        data.action = $("#action").val();
         data.tipe = $("#tipe_pemilih").val();
         data.pilihan = $("#memilih").val();
         data.kontak = $("#kontak").val();
@@ -72,8 +77,43 @@ $(function() {
   //search proses
   $("#btnSubmitFilter").on("click", function(e) {
     e.preventDefault();
-    dTable.api().ajax.reload();
+    data = $("#formFilter").serializeArray();
+    amp = $.ajax({
+      url: host + "/app/api/konsolidasi/ajax.php",
+      type: "post",
+      data: data,
+      success: function(data) {
+        $("#filterModel").modal("hide");
+      }
+    });
+    dTable.api().ajax.reload(); //just reload table
+    tdyd = $.ajax({
+      url: host + "/app/api/konsolidasi/ajax.php?action=countKonsolidasi",
+      type: "post",
+      dataType: "json",
+      data: data,
+      success: function(data) {
+        $("#tdyd").html(data.konsolidasi);
+      }
+    }); //tdyd
+    kategori = $.ajax({
+      url: host + "/app/api/konsolidasi/ajax.php?action=countKategori",
+      type: "post",
+      dataType: "json",
+      data: data,
+      success: function(data) {
+        pka = $("#pka").html(data[0]);
+        pkb = $("#pkb").html(data[1]);
+        pkc = $("#pkc").html(data[2]);
+        $("#pkd").html(data[3]);
+        $("#pke").html(data[4]);
+        pp = data[0]+data[1]+data[2];
+        $("#pp").html(pp);
+        console.log(pp)
+      }
+    });
   });
+
   // $("#formFilter").validate({
   //   submitHandler: function(form) {
   //     ajaxAction();
@@ -94,5 +134,4 @@ function ajaxAction() {
       $("#filterModel").modal("hide");
     }
   });
-  console.log(v_dump);
 }

@@ -37,11 +37,11 @@
                         <span>Total data yang ditemukan: <b id="tdyd" class="pkdefault">0</b> Orang</span>
                         <hr style="margin: 5px 0; border: 1px solid #ddd;">
                         <ul style="list-style: none; padding-left: 0px">
-                            <li>Pemilih Kategori A &#40;PARTAI SAYA DAN CALEG SAYA&#41;: <b id="pka" class="pkdefault">0</b> Orang</li>
-                            <li>Pemilih Kategori B &#40;PARTAI SAYA NAMUN BELUM ADA CALEG&#41;: <b id="pkb" class="pkdefault">0</b> Orang</li>
-                            <li>Pemilih Kategori C &#40;TIDAK TAHU &#47; TIDAK MENJAWAB&#41;: <b id="pkc" class="pkdefault">0</b> Orang</li>
-                            <li>Pemilih Kategori D &#40;PARTAI SAYA NAMUN CALEG LAIN&#41;: <b id="pkd" class="pkdefault">0</b> Orang</li>
-                            <li>Pemilih Kategori E &#40;PARTAI LAIN DAN CALEG LAIN&#41;: <b id="pke" class="pkdefault">0</b> Orang</li>
+                            <li>Pemilih Kategori A <span class="hidden-xs">&#40;PARTAI SAYA DAN CALEG SAYA&#41;</span>: <b id="pka" class="pkdefault">0</b> Orang</li>
+                            <li>Pemilih Kategori B <span class="hidden-xs">&#40;PARTAI SAYA NAMUN BELUM ADA CALEG&#41;</span>: <b id="pkb" class="pkdefault">0</b> Orang</li>
+                            <li>Pemilih Kategori C <span class="hidden-xs">&#40;TIDAK TAHU &#47; TIDAK MENJAWAB&#41;</span>: <b id="pkc" class="pkdefault">0</b> Orang</li>
+                            <li>Pemilih Kategori D <span class="hidden-xs">&#40;PARTAI SAYA NAMUN CALEG LAIN&#41;</span>: <b id="pkd" class="pkdefault">0</b> Orang</li>
+                            <li>Pemilih Kategori E <span class="hidden-xs">&#40;PARTAI LAIN DAN CALEG LAIN&#41;</span>: <b id="pke" class="pkdefault">0</b> Orang</li>
                         </ul>
                         <hr style="margin: 5px 0; border: 1px solid #ddd">
                         <span>Potensi Pemilih : <b id="pp" class="pkdefault">0</b> Orang</span>
@@ -175,8 +175,7 @@
                         <div class="col-sm-4 col-xs-4">
                             <div class="form-group is-empty">
                                 <select name="kontak" id="kontak" class="kontak form-control">
-                                    <option>Pilih kontak</option>
-                                    <option value="all">Kontak</option>
+                                    <option value="all">Semua</option>
                                     <option value="0">Tidak Memberi Kontak</option>
                                     <option value="1">Memberi Kontak</option>
                                 </select>
