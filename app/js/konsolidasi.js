@@ -67,9 +67,10 @@ $(function() {
         data.kode_kecamatan = $("#kode_kecamatan").val();
         data.kode_kelurahan = $("#kode_kelurahan").val();
         data.tps = $("#selectTPS").val();
-        data.tipe = $("#tipe_pemilih").val();
-        data.pilihan = $("#memilih").val();
+        data.tipe_pemilih = $("#tipe_pemilih").val();
+        data.memilih = $("#memilih").val();
         data.kontak = $("#kontak").val();
+        console.log(data);
       }
     }
   }); // end datatable
@@ -78,15 +79,18 @@ $(function() {
   $("#btnSubmitFilter").on("click", function(e) {
     e.preventDefault();
     data = $("#formFilter").serializeArray();
-    amp = $.ajax({
-      url: host + "/app/api/konsolidasi/ajax.php",
-      type: "post",
-      data: data,
-      success: function(data) {
-        $("#filterModel").modal("hide");
-      }
-    });
-    dTable.api().ajax.reload(); //just reload table
+    // console.log(data)
+    // amp = $.ajax({
+    //   url: host + "/app/api/konsolidasi/ajax.php",
+    //   type: "post",
+    //   data: data,
+    //   success: function(data) {
+    //     $("#filterModel").modal("hide");
+    //   }
+    // });
+    $("#filterModel").modal("hide");
+    // dTable.api().ajax.reload();
+    dTable.fnDraw();
     tdyd = $.ajax({
       url: host + "/app/api/konsolidasi/ajax.php?action=countKonsolidasi",
       type: "post",
@@ -108,17 +112,11 @@ $(function() {
         $("#pkd").html(data[3]);
         $("#pke").html(data[4]);
         pp = data[0]+data[1]+data[2];
-        $("#pp").html(pp);
-        console.log(pp)
+        $("#pp").html(pp)
       }
     });
   });
 
-  // $("#formFilter").validate({
-  //   submitHandler: function(form) {
-  //     ajaxAction();
-  //   }
-  // });
   //end search proses
 });
 

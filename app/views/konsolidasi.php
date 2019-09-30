@@ -36,13 +36,28 @@
                         <hr style="margin: 5px 0; border: 1px solid #ddd;">
                         <span>Total data yang ditemukan: <b id="tdyd" class="pkdefault">0</b> Orang</span>
                         <hr style="margin: 5px 0; border: 1px solid #ddd;">
-                        <ul style="list-style: none; padding-left: 0px">
-                            <li>Pemilih Kategori A <span class="hidden-xs">&#40;PARTAI SAYA DAN CALEG SAYA&#41;</span>: <b id="pka" class="pkdefault">0</b> Orang</li>
-                            <li>Pemilih Kategori B <span class="hidden-xs">&#40;PARTAI SAYA NAMUN BELUM ADA CALEG&#41;</span>: <b id="pkb" class="pkdefault">0</b> Orang</li>
-                            <li>Pemilih Kategori C <span class="hidden-xs">&#40;TIDAK TAHU &#47; TIDAK MENJAWAB&#41;</span>: <b id="pkc" class="pkdefault">0</b> Orang</li>
-                            <li>Pemilih Kategori D <span class="hidden-xs">&#40;PARTAI SAYA NAMUN CALEG LAIN&#41;</span>: <b id="pkd" class="pkdefault">0</b> Orang</li>
-                            <li>Pemilih Kategori E <span class="hidden-xs">&#40;PARTAI LAIN DAN CALEG LAIN&#41;</span>: <b id="pke" class="pkdefault">0</b> Orang</li>
-                        </ul>
+                        <table class="table-condensed table-responsive">
+                            <tr>
+                                <td>Pemilih Kategori A <span class="hidden-xs">&#40;PARTAI SAYA DAN CALEG SAYA&#41;</span></td>
+                                <td>: <b id="pka" class="pkdefault">0</b> Orang</td>
+                            </tr>
+                            <tr>
+                                <td>Pemilih Kategori B <span class="hidden-xs">&#40;PARTAI SAYA NAMUN BELUM ADA CALEG&#41;</span></td>
+                                <td>: <b id="pkb" class="pkdefault">0</b> Orang</td>
+                            </tr>
+                            <tr>
+                                <td>Pemilih Kategori C <span class="hidden-xs">&#40;TIDAK TAHU &#47; TIDAK MENJAWAB&#41;</span></td>
+                                <td>: <b id="pkc" class="pkdefault">0</b> Orang</td>
+                            </tr>
+                            <tr>
+                                <td>Pemilih Kategori D <span class="hidden-xs">&#40;PARTAI SAYA NAMUN CALEG LAIN&#41;</span></td>
+                                <td>: <b id="pkd" class="pkdefault">0</b> Orang</td>
+                            </tr>
+                            <tr>
+                                <td>Pemilih Kategori E <span class="hidden-xs">&#40;PARTAI LAIN DAN CALEG LAIN&#41;</span></td>
+                                <td>: <b id="pke" class="pkdefault">0</b> Orang</td>
+                            </tr>
+                        </table>
                         <hr style="margin: 5px 0; border: 1px solid #ddd">
                         <span>Potensi Pemilih : <b id="pp" class="pkdefault">0</b> Orang</span>
                         <span id="spanTest"></span>

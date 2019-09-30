@@ -195,18 +195,7 @@ class fetchData
         or kk.kode_kabupaten_kota = " . $kode_filter . " 
         or kc.kode_kecamatan = " . $kode_filter . " 
         or kl.kode_kelurahan = " . $kode_filter . ")";
-        if (!empty($requestData['memilih'])) $where .= " and kp.id_pilihan = " . $requestData['memilih'];
-        if (!empty($requestData['selectTPS'])) $where .= " and d.tps = " . $requestData['selectTPS'];
-        if (!empty($requestData['tipe_pemilih'])) $where .= " and tp.id_tipe = " . $requestData['tipe_pemilih'];
-        if (!empty($requestData['kontak'])) {
-            if ($requestData['kontak'] == 'all') {
-                $where .= ' ';
-            } elseif ($requestData['kontak'] == 0) {
-                $where .= " and (m.nomor_kontak = '' and m.nomor_kontak = '-') ";
-            } elseif ($requestData['kontak'] == 1) {
-                $where .= " and (m.nomor_kontak != '' and m.nomor_kontak != '-') ";
-            }
-        }
+        
         $where .= ") AS kategori";
         $where .= " JOIN kategori_pilihan kp on kp.id_pilihan = kategori.id_pilihan
         GROUP BY kp.nama_pilihan
