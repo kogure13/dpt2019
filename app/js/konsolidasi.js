@@ -70,7 +70,6 @@ $(function() {
         data.tipe_pemilih = $("#tipe_pemilih").val();
         data.memilih = $("#memilih").val();
         data.kontak = $("#kontak").val();
-        console.log(data);
       }
     }
   }); // end datatable
@@ -79,15 +78,6 @@ $(function() {
   $("#btnSubmitFilter").on("click", function(e) {
     e.preventDefault();
     data = $("#formFilter").serializeArray();
-    // console.log(data)
-    // amp = $.ajax({
-    //   url: host + "/app/api/konsolidasi/ajax.php",
-    //   type: "post",
-    //   data: data,
-    //   success: function(data) {
-    //     $("#filterModel").modal("hide");
-    //   }
-    // });
     $("#filterModel").modal("hide");
     // dTable.api().ajax.reload();
     dTable.fnDraw();
@@ -116,7 +106,6 @@ $(function() {
       }
     });
   });
-
   //end search proses
 });
 

@@ -43,50 +43,5 @@
                     <span class="sr-only">Toggle navigation</span>
                 </a>
 
-                <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown user user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <span>
-                                    <i class="username-detail text-user-detail" id="username-detail"></i>
-                                    User
-                                </span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <!-- User image -->
-                                <li class="user-header">
-                                    <p>
-                                        <span id="userA" class="text-user-detail"></span> - <span id="userD"></span>
-                                        <small id="userT"></small>
-                                    </p>
-                                </li>
-                                <!-- Menu Body -->
-                                <li class="user-body">
-                                    <div class="row">
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Inbox</a>
-                                        </div>
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Outbox</a>
-                                        </div>
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Info</a>
-                                        </div>
-                                    </div>
-                                    <!-- /.row -->
-                                </li>
-                                <!-- Menu Footer-->
-                                <li class="user-footer">
-                                    <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                    </div>
-                                    <div class="pull-right">
-                                        <a href="?page=logout" class="btn btn-default btn-flat">Sign out</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
             </nav>
         </header>

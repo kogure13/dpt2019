@@ -22,7 +22,7 @@ $(function() {
 
       return false;
     },
-    minLength: 3
+    minLength: 1
   });
 
   $("#tags_kecamatan").autocomplete({
@@ -36,7 +36,7 @@ $(function() {
 
       return false;
     },
-    minLength: 3
+    minLength: 1
   });
 
   $("#tags_kabkota").autocomplete({
@@ -50,7 +50,7 @@ $(function() {
 
       return false;
     },
-    minLength: 3
+    minLength: 1
   });
 
   $("#tags_provinsi").autocomplete({
@@ -64,7 +64,7 @@ $(function() {
 
       return false;
     },
-    minLength: 3
+    minLength: 1
   });
   //end autocomplete
 

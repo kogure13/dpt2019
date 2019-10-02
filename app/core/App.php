@@ -162,10 +162,10 @@ class Main extends Controller
         $actBtn = '<div class="form-group text-center">';
         $actBtn .= '<select name="modalAct" id="modalAct" class="modalAct">';
         $actBtn .= '<option value="">Action</option>';
-        $actBtn .= '<option value="edit" data-id="'.$id.'" style="display: none">Edit</option>';
-        if ($cek->cekMemilih($id) == 0) {
+        // $actBtn .= '<option value="edit" data-id="'.$id.'" style="display: none">Edit</option>';
+        // if ($cek->cekMemilih($id) == 0) {
             $actBtn .= '<option value="interview" data-id="'.$id.'">Interview</option>';
-        }
+        // }
         $actBtn .= '</select>';
         $actBtn .= '</div>';
 

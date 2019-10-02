@@ -1,0 +1,44 @@
+body {
+    /* 282e35 - black */
+    /* background: url('../../dist/img/5.png') 100% 100% no-repeat; */
+	background-attachment: fixed;
+    background-color: #282e35;
+	background-size: cover;
+}
+
+.error {
+    color: #c51717;
+}
+
+.form-login {
+    margin-top: 13%;
+}
+
+.outter-form-login {
+    padding: 20px;
+    background: #fff;
+    position: relative;
+    border-radius: 5px;
+    color: #333;
+}
+
+.logo-login>img {
+    width: 128px;
+    height: auto;
+}
+
+h3.title-login {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.forget {
+    margin-top: 20px;
+    color: #ADADAD;
+}
+
+.btn-custom-green {
+    background: #21A957;
+    color: #fff;
+}

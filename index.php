@@ -1,8 +1,12 @@
 <?php
 session_start();
+$_SESSION['role'] = 1;
 require_once 'app/init.php';
 
-$_SESSION['role'] = 1;
-
 $main = new Main();
-$main->getMain();
+
+// if(!isset($_SESSION['user_apps'])) {
+// $main->getLogin();
+// } else {
+    $main->getMain();
+// }

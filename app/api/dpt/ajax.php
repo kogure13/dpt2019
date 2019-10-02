@@ -15,6 +15,11 @@ $action = (isset($requestData['action'])) ? $requestData['action'] : '';
 $action = (isset($_GET['action'])) ? $_GET['action'] : $action;
 $filter = (isset($_GET['filter'])) ? $_GET['filter'] : '';
 
+$kode_filter = (!empty($requestData['kode_provinsi'])) ? $requestData['kode_provinsi'] : 0;
+        $kode_filter = (!empty($requestData['kode_kabkota'])) ? $requestData['kode_kabkota'] : $kode_filter;
+        $kode_filter = (!empty($requestData['kode_kecamatan'])) ? $requestData['kode_kecamatan'] : $kode_filter;
+        $kode_filter = (!empty($requestData['kode_kelurahan'])) ? $requestData['kode_kelurahan'] : $kode_filter;
+
 switch ($action) {
     case 'getTPS':
         if ($filter == "provinsi") {
@@ -69,7 +74,7 @@ switch ($action) {
         break;
     case 'cariDPT':
         $columns = [];
-        echo json_encode($fetchData->getDataTable($requestData, $columns, $crud, $userUI));
+        echo json_encode($fetchData->getDataTable($requestData, $columns, $crud, $userUI, $kode_filter));
         // echo $requestData['niknama'];
         break;
     case 'pileg':
@@ -136,13 +141,8 @@ class fetchData
         return $json_data;
     }
 
-    public function getDataTable($requestData, $col, $crud, $userUI)
+    public function getDataTable($requestData, $col, $crud, $userUI, $kode_filter)
     {
-        $kode_filter = (!empty($requestData['kode_provinsi'])) ? $requestData['kode_provinsi'] : 0;
-        $kode_filter = (!empty($requestData['kode_kabkota'])) ? $requestData['kode_kabkota'] : $kode_filter;
-        $kode_filter = (!empty($requestData['kode_kecamatan'])) ? $requestData['kode_kecamatan'] : $kode_filter;
-        $kode_filter = (!empty($requestData['kode_kelurahan'])) ? $requestData['kode_kelurahan'] : $kode_filter;
-
         // $fieldCOunt = ['count(*) as count'];
         $field = "select d.id_dpt, d.kode_dpt, d.nik, d.nama, d.alamat, d.jenis_kelamin, d.tps, k.nama_kelurahan, kc.nama_kecamatan, kk.nama_kabupaten_kota, p.nama_provinsi ";
         $from = "dpt d ";
@@ -158,6 +158,7 @@ class fetchData
         if (!empty($requestData['tps']))
             $where .= " and d.tps = '" . $requestData['tps'] . "'";
 
+            $where .= " and d.memilih = 0";
         $sqfilter = $field . " from " . $from . " " . $join . " where " . $where;
         $sql = $sqfilter;
         $qfilter = mysqli_query($this->conn, $sqfilter) or die('error fecth filter data');

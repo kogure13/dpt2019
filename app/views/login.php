@@ -1,93 +1,58 @@
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-    <title id='thetitle'>Login to Siakad UNNUR 2019</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <title>Login e-DPT</title>
 
     <link rel="shortcut icon" href="<?= BASE_URL ?>public/assets/images/logo.png" type="image/x-icon">
 
-    <!-- <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,800" type="text/css" /> -->
+    <link rel="stylesheet" href="<?= BASE_URL ?>public/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>public/bower_components/font-awesome/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="<?= BASE_URL ?>public/assets/login/ap3login1.css" type="text/css" />
-    <link rel="stylesheet" href="<?= BASE_URL ?>public/plugins/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>public/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>public/dist/css/bootstrap-material-design.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>public/dist/css/ripples.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>public/dist/css/MaterialAdminLTE.min.css">
 
-    <link rel="stylesheet" href="<?= BASE_URL ?>public/plugins/sweetalert/sweetalert2.min.css" />
-    <link rel="stylesheet" href="<?= BASE_URL ?>public/dist/css/style.css">
-
+    <link rel="stylesheet" href="<?=BASE_URL?>public/dist/css/login.css" />
 </head>
 
 <body>
-    <div class="container">
-
-        <div class="top_login">
-            <div class="title_top_login">
-                <div class="pwform">
-                    <!-- <div id='school_motto'>University</div> -->
-                    <img height='60px' src='<?= BASE_URL ?>public/assets/images/unnur-dark-logo.png'>
+    <div class="col-lg-4 col-md-6 col-lg-offset-4 col-md-offset-3 form-login">
+        <div class="outter-form-login">
+            <form id="loginForm" name="loginForm" class="inner-login" novalidate="novalidate">
+                <input type="hidden" name="loginSubmit" value="login">
+                <div class="text-center logo-login">
+                    <img src="dist/img/logo.png" alt="" class="img-circle">
                 </div>
-            </div>
-        </div>
+                <h3 class="text-center title-login">Please Login To Start Session</h3>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="username" id="username" placeholder="Username" />
+                </div>
 
-        <div class="sub_container">
-            <div class="login_form">
-                <div id='top_message'></div>
-                <form action="app/api/login/ajax.php" name="loginForm" id="loginForm" role="form"
-                    novalidate="novalidate">
-                    <input type="hidden" name="action" value="login">
-                    <div class="login_new">
-                        <input class='textbox' type="text" id="username" name="username" autocomplete="off"
-                            placeholder="Username" />
+                <div class="form-group">
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Password" />
+                </div>
+
+                <button type="submit" class="btn btn-block bg-aqua">
+                    <div class="">
+                        <i class="fa fa-sign-in fa-fw"></i>
+                        <span>Login</span>
                     </div>
+                </button>
 
-                    <div class="pass_new">
-                        <input class='textbox' type="password" id="password" name="password" placeholder="Password" />
-                        <div id='forget'><a id='forgetpassword' href='#'>Forget Password</a></div>
-                        <div class='e8hidden' id='forget_email'>
-                            <div id='forget_email_message'>New password will be sent to your email</div>
-                            <div id='forget_email_email'><input size='35' type='email' id='forget_email_email_input'
-                                    placeholder="Enter your email address"></div>
-                        </div>
-
-                    </div>
-
-                    <div class="submit">
-                        <div id='submitbutton'>
-                            <button type="submit" id="submit">
-                                Log-in <i class="fa fa-sign-in fa-lg"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-
-                <div class='hidden' id='message'></div>
-            </div>
-
-            <img src="<?= BASE_URL ?>public/assets/images/final2.png" />
-        </div>
-        <!------------------------------ footer -------------------------->
-        <div class="footer">
-            <div class="box_educa_top">
-                <a link href="#" target="">
-                    <span class="extra-link"><i class="fa fa-youtube-play"></i> UNNURTV
-                </a>
-            </div>
-            <div class="box_educa">
-                <a link href="#" target=""> <?= APPS_NAME ?> </a> | <i class="fa fa-copyright" aria-hidden="true"></i>
-                copyright 2019
-            </div>
-            <div class="box_footer">
-            </div>
+            </form>
         </div>
     </div>
-    <!-- container -->
-    <script src="<?= BASE_URL ?>public/plugins/jQuery/jquery-2.2.3.min.js"></script>
-    <script src="<?= BASE_URL ?>public/plugins/jQuery/jquery.min.js"></script>
-    <script src="<?= BASE_URL ?>public/plugins/sweetalert/sweetalert2.min.js"></script>
-    <script src="<?= BASE_URL ?>public/dist/js/jquery.validate.min.js"></script>
-    <script src="<?= BASE_URL ?>public/js/login.js"></script>
+
+    <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="dist/js/jquery.validate.min.js"></script>
+    <script src="application/login/script.js"></script>
 </body>
+
+</html>

@@ -80,6 +80,12 @@
                 }
             }
             ?>
+            <li>
+                <a href="?page=logout">
+                    <i class="fa fa-sign-out"></i>
+                    Logout
+                </a>
+            </li>
         </ul>
     </section>
     <!-- /.sidebar -->
