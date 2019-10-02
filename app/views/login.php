@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
+
     <title>Login e-DPT</title>
 
     <link rel="shortcut icon" href="<?= BASE_URL ?>public/assets/images/logo.png" type="image/x-icon">
@@ -18,14 +18,14 @@
     <link rel="stylesheet" href="<?= BASE_URL ?>public/dist/css/ripples.min.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>public/dist/css/MaterialAdminLTE.min.css">
 
-    <link rel="stylesheet" href="<?=BASE_URL?>public/dist/css/login.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>public/dist/css/login.css" />
 </head>
 
 <body>
     <div class="col-lg-4 col-md-6 col-lg-offset-4 col-md-offset-3 form-login">
         <div class="outter-form-login">
             <form id="loginForm" name="loginForm" class="inner-login" novalidate="novalidate">
-                <input type="hidden" name="loginSubmit" value="login">
+                <input type="hidden" name="action" id="action" value="login">
                 <div class="text-center logo-login">
                     <img src="dist/img/logo.png" alt="" class="img-circle">
                 </div>
@@ -49,10 +49,11 @@
         </div>
     </div>
 
-    <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
-    <script src="plugins/sweetalert/sweetalert.min.js"></script>
-    <script src="dist/js/jquery.validate.min.js"></script>
-    <script src="application/login/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="<?= BASE_URL ?>public/dist/js/jquery.validate.min.js"></script>
+    <script src="<?= BASE_URL ?>app/js/login.js"></script>
+
 </body>
 
 </html>
