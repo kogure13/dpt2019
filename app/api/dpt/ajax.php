@@ -161,10 +161,11 @@ class fetchData
             $where .= " and d.memilih = 0";
         $sqfilter = $field . " from " . $from . " " . $join . " where " . $where;
         $sql = $sqfilter;
+        // echo $sqfilter;
+        // exit();
         $qfilter = mysqli_query($this->conn, $sqfilter) or die('error fecth filter data');
         $totalData = mysqli_num_rows($qfilter);
         $totalFilter = $totalData;
-
         // exit();
 
         if (!empty($requestData['search']['value'])) {

@@ -22,14 +22,14 @@
 </head>
 
 <body>
-    <div class="col-lg-4 col-md-6 col-lg-offset-4 col-md-offset-3 form-login">
+    <div class="form-login">
         <div class="outter-form-login">
+            <div class="logo-login">
+                <img src="<?= BASE_URL ?>public/assets/images/logo.png" alt="" class="img-circle">
+            </div>
             <form id="loginForm" name="loginForm" class="inner-login" novalidate="novalidate">
                 <input type="hidden" name="action" id="action" value="login">
-                <div class="text-center logo-login">
-                    <img src="dist/img/logo.png" alt="" class="img-circle">
-                </div>
-                <h3 class="text-center title-login">Please Login To Start Session</h3>
+                <h3 class="text-center title-login">Login e-DPT</h3>
                 <div class="form-group">
                     <input type="text" class="form-control" name="username" id="username" placeholder="Username" />
                 </div>
@@ -46,6 +46,9 @@
                 </button>
 
             </form>
+            <div class="text-center">
+                <?= date("Y") ?> @ <?= CP_NAME ?>
+            </div>
         </div>
     </div>
 
