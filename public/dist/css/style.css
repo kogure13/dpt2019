@@ -52,3 +52,32 @@
 .error > label {
   color: #FF5733;
 }
+
+.namaAct {
+  cursor: pointer;
+}
+
+.table-statistik {
+  background: #ddd;
+  width: 100%;
+  max-width: 100%;
+  display: table;
+  font-size: 14px
+}
+
+.table-statistik > thead > tr > th {
+  background: #66afe9;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid #b7d7f3;
+  color: #fff;
+}
+
+.table-statistik > tbody > tr > td {
+  padding: 3px 10px 3px 10px;
+}
+
+.table-statistik > tbody > tr:hover {
+  background-color: #00c0ef;
+  color: #fff;
+}

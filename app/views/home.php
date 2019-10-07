@@ -77,9 +77,8 @@
                     <div class="box-body">
                         <div class="row">
                             <div class="col-xs-12 col-sm-8">
-                                <div class="chart">
-                                    <!-- Sales Chart Canvas -->
-                                    <canvas id="salesChart" style="min-height: 50px;"></canvas>
+                                <div class="box-statistik" id="">
+                                    
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-4">
@@ -102,7 +101,7 @@
                                             <div class="icon">
                                                 <i class="fa fa-map"></i>
                                             </div>
-                                            <a href="#" class="small-box-footer">
+                                            <a href="#" class="small-box-footer infoAct" id="provinsi">
                                                 More info <i class="fa fa-arrow-circle-right"></i>
                                             </a>
                                         </div>
@@ -118,7 +117,7 @@
                                             <div class="icon">
                                                 <i class="fa fa-building"></i>
                                             </div>
-                                            <a href="#" class="small-box-footer">
+                                            <a href="#" class="small-box-footer infoAct" id="kabkota">
                                                 More info <i class="fa fa-arrow-circle-right"></i>
                                             </a>
                                         </div>
@@ -136,7 +135,7 @@
                                             <div class="icon">
                                                 <i class="fa fa-map-marker"></i>
                                             </div>
-                                            <a href="#" class="small-box-footer">
+                                            <a href="#" class="small-box-footer infoAct" id="kecamatan">
                                                 More info <i class="fa fa-arrow-circle-right"></i>
                                             </a>
                                         </div>
@@ -152,7 +151,7 @@
                                             <div class="icon">
                                                 <i class="fa fa-home"></i>
                                             </div>
-                                            <a href="#" class="small-box-footer">
+                                            <a href="#" class="small-box-footer infoAct" id="kelurahan">
                                                 More info <i class="fa fa-arrow-circle-right"></i>
                                             </a>
                                         </div>
