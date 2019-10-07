@@ -6,16 +6,19 @@ $(document).ready(function() {
     e.preventDefault();
     var id = $(this).attr("id");
     loadStatistik = load + "statistik." + id + ".php";
+
     $(".box-statistik").load(loadStatistik, function() {
+      statistikTable();
       $(".namaAct").on("click", function(e) {
         e.preventDefault();
         var dataid = $(this).attr("data-id");
-        console.log(dataid)
+        $(".box-statistik").load(loadStatistik, function(){
+          statistikTable();
+        });
       });
     });
     // console.log(loadStatistik)
   });
-
   // ajax load data
   $.ajax({
     url: url + "?action=getDPT&tbname=dashboard",
@@ -32,7 +35,51 @@ $(document).ready(function() {
       $("#kecamatan").html(numberFormat(data.kecamatan));
       $("#kelurahan").html(numberFormat(data.kelurahan));
       // just load statistik provinsi
-      $(".box-statistik").load(load + "statistik.provinsi.php");
+      $(".box-statistik").load(load + "statistik.provinsi.php", function() {
+        statistikTable();
+        $(".namaAct").on("click", function(e) {
+          e.preventDefault();
+          var dataid = $(this).attr("data-id");
+          //load to kabupaten kota
+          loadStatistik = load + "statistik.kabkota.php?id=" + dataid;
+          $(".box-statistik").load(loadStatistik, function() {
+            statistikTable();
+            $(".namaAct").on("click", function(e){
+              e.preventDefault();
+              var dataid = $(this).attr("data-id");
+              //load to kecamatan
+              loadStatistik = load + "statistik.kecamatan.php?id=" + dataid;
+              $(".box-statistik").load(loadStatistik, function(){
+                statistikTable();
+                $(".namaAct").on("click", function(e){
+                  e.preventDefault();
+                  var dataid = $(this).attr("data-id");
+                  //load to kelurahan
+                  loadStatistik = load+"statistik.kelurahan.php?id="+dataid;
+                  $(".box-statistik").load(loadStatistik, function(){
+                    statistikTable();
+                    
+                  });
+                });
+              });
+            });
+          });
+        });
+      });
     }
   });
+  //list table
 });
+
+function statistikTable() {
+  $("#statistik").dataTable({
+    pageLength: 50,
+    ordering: false,
+    lengthChange: false,
+    language: {
+      sSearch: "_INPUT_",
+      sSearchPlaceholder: "Search...",
+      sLengthMenu: "_MENU_"
+    }
+  });
+}

@@ -76,12 +76,12 @@
                     </div>
                     <div class="box-body">
                         <div class="row">
-                            <div class="col-xs-12 col-sm-8">
+                            <div class="col-xs-12 col-sm-10">
                                 <div class="box-statistik" id="">
                                     
                                 </div>
                             </div>
-                            <div class="col-xs-12 col-sm-4">
+                            <div class="col-xs-12 col-sm-2">
 
                                 <h4 class="text-center">
                                     <strong>
@@ -90,7 +90,7 @@
                                 </h4>
 
                                 <div class="row">
-                                    <div class="col-xs-12 col-sm-6">
+                                    <div class="col-xs-12">
                                         <div class="small-box bg-yellow">
                                             <div class="inner">
                                                 <h3 id="provinsi">
@@ -106,7 +106,9 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="col-xs-12 col-sm-6">
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
                                         <div class="small-box bg-green">
                                             <div class="inner">
                                                 <h3 id="kota">
@@ -124,7 +126,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-xs-12 col-sm-6">
+                                    <div class="col-xs-12">
                                         <div class="small-box bg-aqua">
                                             <div class="inner">
                                                 <h3 id="kecamatan">
@@ -140,7 +142,9 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="col-xs-12 col-sm-6">
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
                                         <div class="small-box bg-red">
                                             <div class="inner">
                                                 <h3 id="kelurahan">
@@ -157,7 +161,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
