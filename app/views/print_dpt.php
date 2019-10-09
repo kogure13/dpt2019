@@ -1,34 +1,12 @@
-
-
-<?php
-/**
- * HTML2PDF Librairy - example
- *
- * HTML => PDF convertor
- * distributed under the LGPL License
- *
- * @author      Laurent MINGUET <webmaster@html2pdf.fr>
- *
- * isset($_GET['vuehtml']) is not mandatory
- * it allow to display the result in the HTML format
- */
-
-    // get the HTML
-    ob_start();
-    include(dirname(__FILE__).'/res/exemple00.php');
-    $content = ob_get_clean();
-
-    // convert in PDF
-    require_once '../../public/plugins/html2pdf/html2pdf.class.php';
-    try
-    {
-        $html2pdf = new HTML2PDF('P', 'A4', 'fr');
-//      $html2pdf->setModeDebug();
-        $html2pdf->setDefaultFont('Arial');
-        $html2pdf->writeHTML($content, isset($_GET['vuehtml']));
-        $html2pdf->Output('exemple00.pdf', 'FI');
-    }
-    catch(HTML2PDF_exception $e) {
-        echo $e;
-        exit;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body onload="window.print()">
+    
+</body>
+</html>
