@@ -103,6 +103,8 @@ class Crud
         $sql = "update $table_name set ";
         $sql .= $array_data;
         $sql .= " where $where";
+        // echo $sql;
+        // exit();
 
         $query = mysqli_query($this->conn, $sql) or die('Error update data');
         return $query;

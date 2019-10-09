@@ -9,7 +9,8 @@
                     <div class="box-body">
                         <div class="row">
                             <div class="col-xs-12 col-sm-4">
-                                <form id="formUser" class="form-horizontal">
+                                <form id="formUser" class="form-horizontal" name="formUser" role="form" novalidate="novalidate">
+                                    <input type="hidden" name="action" id="action" value="edit">
                                     <div class="form-group is-empty">
                                         <label for="" class="col-sm-3 control-label">Username</label>
                                         <div class="col-sm-9">
@@ -35,7 +36,7 @@
                                     <div class="modal-footer">
                                         <?php
                                         button($att = [
-                                            'type="button"', 'id="btnSave"', 'class="btn btn-sm bg-green"'
+                                            'type="submit"', 'id="btnSave"', 'class="btn btn-sm bg-green"'
                                         ], $data = [
                                             '<i class="fa fa-save"></i> Update Changes'
                                         ]);

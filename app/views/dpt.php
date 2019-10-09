@@ -105,7 +105,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-xs-10 col-sm-4 col-md-4">
+                                <div class="col-xs-10 col-sm-5 col-md-5">
                                     <div class="input-group">
                                         <div class="form-group is-empty">
                                             <?php
@@ -120,7 +120,11 @@
                                             <?php
                                             button($attr = [
                                                 'type="button"', 'id="btnCari"', 'class="btnCari btn btn-sm bg-aqua"',
-                                            ], $data = ['<i class="fa fa-search"></i> Cari'])
+                                            ], $data = ['<i class="fa fa-search"></i> Cari']);
+                                            button($attr = [
+                                                'type="button"', 'id="btnCetakDPT"', 'class="btnCari btn btn-sm bg-red"',
+                                            ], $data = ['<i class="fa fa-print"></i> Cetak']);
+
                                             ?>
                                         </span>
                                     </div>

@@ -88,7 +88,7 @@ $(function() {
   //end datatable
 
   //search proses
-  $(".btnCari").on("click", function(e) {
+  $("#btnCari").on("click", function(e) {
     e.preventDefault();
     dTable.api().ajax.reload();
   });
@@ -159,6 +159,12 @@ $(function() {
     }
   });
   //end submit proses
+
+  //Cetak proses
+  $("#btnCetakDPT").on("click", function(e){
+    alert("cetak bro");
+
+  });
 });
 
 function hapus(id) {
