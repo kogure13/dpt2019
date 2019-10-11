@@ -1,8 +1,8 @@
 $(function() {
-  setInputFilter(document.getElementById("kontak"), function (value) {
+  setInputFilter(document.getElementById("kontak"), function(value) {
     return /^\d*$/.test(value);
   });
-  setInputFilter(document.getElementById("banyak_pemilih"), function (value) {
+  setInputFilter(document.getElementById("banyak_pemilih"), function(value) {
     return /^\d*$/.test(value);
   });
   //clear
@@ -119,7 +119,7 @@ $(function() {
     a++;
   });
 
-  $("#btnCancelInterview").click(function () {
+  $("#btnCancelInterview").click(function() {
     var $form = $("#formInterview");
     $form.trigger("reset");
     $form.validate().resetForm();
@@ -161,9 +161,28 @@ $(function() {
   //end submit proses
 
   //Cetak proses
-  $("#btnCetakDPT").on("click", function(e){
-    alert("cetak bro");
-
+  $("#btnCetakDPT").on("click", function(e) {
+    $form = $("#formAdd");
+    data = $form.serializeArray();
+    // console.log(data)
+    var kode_filter = 0;
+    if ($("#kode_provinsi").val() !== 0) {
+      kode_filter = $("#kode_provinsi").val();
+    }
+    if ($("#kode_kabkota").val() !== 0) {
+      kode_filter = $("#kode_kabkota").val();
+    }
+    if ($("#kode_kecamatan").val() !== 0) {
+      kode_filter = $("#kode_kecamatan").val();
+    }
+    if ($("#kode_kelurahan").val() !== 0) {
+      kode_filter = $("#kode_kelurahan").val();
+    }
+    if ($("#selectTPS").val() !== 0) {
+      kode_tps = $("#selectTPS").val();
+    }
+    
+    window.open(host+"/app/views/print_dpt.php?kode_filter="+kodefilter+"&kode_tps="+kode_tps, "_blank");
   });
 });
 

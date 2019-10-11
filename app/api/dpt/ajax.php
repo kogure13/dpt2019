@@ -16,9 +16,9 @@ $action = (isset($_GET['action'])) ? $_GET['action'] : $action;
 $filter = (isset($_GET['filter'])) ? $_GET['filter'] : '';
 
 $kode_filter = (!empty($requestData['kode_provinsi'])) ? $requestData['kode_provinsi'] : 0;
-        $kode_filter = (!empty($requestData['kode_kabkota'])) ? $requestData['kode_kabkota'] : $kode_filter;
-        $kode_filter = (!empty($requestData['kode_kecamatan'])) ? $requestData['kode_kecamatan'] : $kode_filter;
-        $kode_filter = (!empty($requestData['kode_kelurahan'])) ? $requestData['kode_kelurahan'] : $kode_filter;
+$kode_filter = (!empty($requestData['kode_kabkota'])) ? $requestData['kode_kabkota'] : $kode_filter;
+$kode_filter = (!empty($requestData['kode_kecamatan'])) ? $requestData['kode_kecamatan'] : $kode_filter;
+$kode_filter = (!empty($requestData['kode_kelurahan'])) ? $requestData['kode_kelurahan'] : $kode_filter;
 
 switch ($action) {
     case 'getTPS':
@@ -96,11 +96,11 @@ switch ($action) {
         ];
 
         $msg = $crud->create($table_master_interview, $field, $data);
-        if(isset($requestData['pertanyaan'])) {
+        if (isset($requestData['pertanyaan'])) {
             $table_detail_interview = "detail_interview";
             $field = ['kode_dpt', 'pertanyaan', 'jawaban'];
             $count = count($requestData['pertanyaan']);
-            for($i=0; $i<$count; $i++) {
+            for ($i = 0; $i < $count; $i++) {
                 $data = [
                     mysqli_real_escape_string($connString, $requestData['kodePemilih']),
                     mysqli_real_escape_string($connString, $requestData['pertanyaan'][$i]),
@@ -114,9 +114,9 @@ switch ($action) {
         $data = [
             'memilih' => mysqli_real_escape_string($connString, 1)
         ];
-        $where = "kode_dpt = '".mysqli_real_escape_string($connString, $requestData['kodePemilih'])."'";
+        $where = "kode_dpt = '" . mysqli_real_escape_string($connString, $requestData['kodePemilih']) . "'";
         $crud->update("dpt", $data, $where);
-        if($msg) echo 1;
+        if ($msg) echo 1;
         break;
 }
 
@@ -158,7 +158,7 @@ class fetchData
         if (!empty($requestData['tps']))
             $where .= " and d.tps = '" . $requestData['tps'] . "'";
 
-            $where .= " and d.memilih = 0";
+        $where .= " and d.memilih = 0";
         $sqfilter = $field . " from " . $from . " " . $join . " where " . $where;
         $sql = $sqfilter;
         // echo $sqfilter;
