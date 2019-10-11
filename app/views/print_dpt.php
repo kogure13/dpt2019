@@ -8,6 +8,21 @@ $connString = $db->getConnString();
 $kode_filter = $_GET['kode_filter'];
 $kode_tps = $_GET['kode_tps'];
 
+$field = "select k.nama_kelurahan, kc.nama_kecamatan, kk.nama_kabupaten_kota, p.nama_provinsi ";
+$from = "dpt d ";
+$join = "JOIN kelurahan k on k.id_kelurahan = d.id_kelurahan ";
+$join .= "JOIN kecamatan kc on kc.id_kecamatan = k.id_kecamatan ";
+$join .= "JOIN kabupaten_kota kk on kk.id_kabupaten_kota = kc.id_kabupaten_kota ";
+$join .= "JOIN provinsi p on p.id_provinsi = kk.id_provinsi ";
+$where = "(p.kode_provinsi = " . $kode_filter;
+$where .= " or kk.kode_kabupaten_kota = " . $kode_filter;
+$where .= " or kc.kode_kecamatan = " . $kode_filter;
+$where .= " or k.kode_kelurahan = " . $kode_filter . ")";
+
+$sql = $field . " from " . $from . " " . $join . " where " . $where;
+$query = mysqli_query($connString, $sql) or die("error fetch data");
+$data = mysqli_fetch_assoc($query);
+
 ?>
 
 <!DOCTYPE html>
@@ -32,44 +47,49 @@ $kode_tps = $_GET['kode_tps'];
             margin: 0;
             padding: 0;
             font-family: "Arial";
-            font-weight: 600
+            font-size: 8px;
+            /* font-weight: 600; */
+        }
+
+        body {
+            font: 10pt Georgia, "Times New Roman", Times, serif;
         }
 
         img {
-            width: 64px;
+            width: 45%;
         }
 
         header {
-            border-bottom: 1px solid #ccc;
-            width: 90%;
+            border-bottom: 1px solid #333;
             margin: auto;
             margin-bottom: 20px;
-        }
-
-        header>table {
-            width: 60%;
-            padding: 0;
-            margin: auto;
-            margin-bottom: 5px;
             vertical-align: top;
             font-family: "Serif";
+            font: 24pt;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        #lookup>thead>tr>th {
+            text-align: center;
+            vertical-align: top;
         }
     </style>
 </head>
 
 <body>
     <header>
-        <table>
-            <tr>
-                <td width="10%">
-                    <img src="../../public/assets/images/logo.png" alt="">
-                </td>
-                <td align="center">
-                    DAFTAR DPT <br />
-                    REKAP DATA DPT <br />
-                </td>
-            </tr>
-        </table>
+        <div class="row">
+            <div class="col-xs-3" align="right">
+                <img src="../../public/assets/images/logo-jsi.jpg" alt="">
+            </div>
+            <div class="col-xs-7 text-center">
+                REKAP DAFTAR DPT <br />
+                Kelurahan: <?=$data['nama_kelurahan']?> Kecamatan: <?=$data['nama_kecamatan']?> <br />
+                Kabupaten/Kota: <?=$data['nama_kabupaten_kota']?> Provinsi: <?=$data['nama_provinsi']?> <br />
+            </div>
+        </div>
+        <br>
     </header>
 
     <section id="content">
@@ -100,9 +120,24 @@ $kode_tps = $_GET['kode_tps'];
                 $where .= " or kk.kode_kabupaten_kota = " . $kode_filter;
                 $where .= " or kc.kode_kecamatan = " . $kode_filter;
                 $where .= " or k.kode_kelurahan = " . $kode_filter . ")";
-
                 if (!empty($kode_tps))
                     $where .= " and d.tps = '" . $kode_tps . "'";
+                $order = " order by nama asc";
+                $sql = $field . " from " . $from . " " . $join . " where " . $where . " " . $order;
+                $query = mysqli_query($connString, $sql) or die("error fetch data");
+                while ($row = mysqli_fetch_assoc($query)) {
+                    echo "<tr>";
+                    echo "<td>" . strtoupper($row['nama']) . "</td>";
+                    echo "<td>" . strtoupper($row['nik']) . "</td>";
+                    echo "<td>" . strtoupper($row['alamat']) . "</td>";
+                    echo "<td>" . strtoupper($row['jenis_kelamin']) . "</td>";
+                    echo "<td>" . strtoupper($row['tps']) . "</td>";
+                    echo "<td>" . strtoupper($row['nama_kelurahan']) . "</td>";
+                    echo "<td>" . strtoupper($row['nama_kecamatan']) . "</td>";
+                    echo "<td>" . strtoupper($row['nama_kabupaten_kota']) . "</td>";
+                    echo "<td>" . strtoupper($row['nama_provinsi']) . "</td>";
+                    echo "</tr>";
+                }
                 ?>
             </tbody>
         </table>

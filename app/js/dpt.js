@@ -180,9 +180,9 @@ $(function() {
     }
     if ($("#selectTPS").val() !== 0) {
       kode_tps = $("#selectTPS").val();
-    }
+    } 
     
-    window.open(host+"/app/views/print_dpt.php?kode_filter="+kodefilter+"&kode_tps="+kode_tps, "_blank");
+    window.open(host+"/app/views/print_dpt.php?kode_filter="+kode_filter+"&kode_tps="+kode_tps, "_blank");
   });
 });
 
