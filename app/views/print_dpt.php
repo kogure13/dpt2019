@@ -81,7 +81,7 @@ $data = mysqli_fetch_assoc($query);
     <header>
         <div class="row">
             <div class="col-xs-3" align="right">
-                <img src="../../public/assets/images/logo-jsi.jpg" alt="">
+                <img src="/public/assets/images/logo-jsi.jpg" alt="">
             </div>
             <div class="col-xs-7 text-center">
                 REKAP DAFTAR DPT <br />
@@ -120,6 +120,7 @@ $data = mysqli_fetch_assoc($query);
                 $where .= " or kk.kode_kabupaten_kota = " . $kode_filter;
                 $where .= " or kc.kode_kecamatan = " . $kode_filter;
                 $where .= " or k.kode_kelurahan = " . $kode_filter . ")";
+                $where .= " and (d.nik like '%" . $_GET['niknama'] . "%' or d.nama like '%" . $_GET['niknama'] . "%') ";
                 if (!empty($kode_tps))
                     $where .= " and d.tps = '" . $kode_tps . "'";
                 $order = " order by nama asc";
