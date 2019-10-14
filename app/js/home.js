@@ -73,7 +73,8 @@ $(document).ready(function() {
 
 function statistikTable() {
   $("#statistik").dataTable({
-    pageLength: 50,
+    scrollX: true,
+    pageLength: 20,
     ordering: false,
     lengthChange: false,
     language: {

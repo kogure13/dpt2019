@@ -7,13 +7,29 @@
             <div class="col-sm-12 col-xs-12">
                 <div class="box box-default">
                     <div class="box-body">
-                        <div class="input-group">
-                            <div class="input-group-btn">
-                                <button type="button" id="filter" class="btn btn-aqua bg-aqua">Filter <div class="ripple-container"></div></button>
+                        <div class="">
+                            <div class="input-group">
+                                <div class="form-group is-empty">
+                                    <?php
+                                    input($attr = [
+                                        'type="text"', 'name="filterText"', 'id="filterText"', 'class="form-control formClear"',
+                                        'placeholder="Filter Data"', 'disabled="disabled"', 'autocomplete="off"'
+                                    ]);
+                                    ?>
+                                </div>
+                                <span class="input-group-btn">
+                                    <?php
+                                    button($attr = [
+                                        'type="button"', 'id="filter"', 'class="btnCari btn btn-sm bg-aqua"',
+                                    ], $data = ['<i class="fa fa-search"></i> Filter']);
+                                    button($attr = [
+                                        'type="button"', 'id="btnCetakKonsolidasi"', 'class="btnCari btn btn-sm bg-red"',
+                                    ], $data = ['<i class="fa fa-print"></i> Cetak']);
+                                    ?>
+                                </span>
                             </div>
-                            <!-- /btn-group -->
-                            <div class="form-group is-empty"><input type="text" id="filter" class="form-control" disabled="disabled" placeholder="Filter Data"></div>
                         </div>
+
                         <!-- Table Data Konsolidasi -->
                         <table id="lookup" class="table table-bordered table-responsive table-condensed table-hover table-striped nowrap" style="width: 100%">
                             <thead>

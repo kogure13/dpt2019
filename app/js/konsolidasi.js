@@ -3,22 +3,24 @@ var pkb;
 var pkc;
 var pp;
 
-$(function() {
-  $("#filter").on("click", function(e) {
+$(function () {
+  $("#btnCetakKonsolidasi").attr("disabled", true);
+
+  $("#filter").on("click", function (e) {
     e.preventDefault();
     $("#filterModel").modal({
       backdrop: "static",
       keyboard: false
     });
     $("#modalTitle").html("Filter Konsolidasi");
-    $("#btnCancelFilter").click(function() {
+    $("#btnCancelFilter").click(function () {
       var $form = $("#formFilter");
       $form.trigger("reset");
       $form.validate().resetForm();
       $form.find(".error").removeClass("error");
     });
 
-    $("#idPilihFilter").change(function(e) {
+    $("#idPilihFilter").change(function (e) {
       e.preventDefault();
       $form = $(".formClear");
       $form.val("");
@@ -60,7 +62,7 @@ $(function() {
     ajax: {
       url: host + "/app/api/konsolidasi/ajax.php",
       type: "post",
-      data: function(data) {
+      data: function (data) {
         data.action = $("#action").val();
         data.kode_provinsi = $("#kode_provinsi").val();
         data.kode_kabkota = $("#kode_kabkota").val();
@@ -75,7 +77,7 @@ $(function() {
   }); // end datatable
 
   //search proses
-  $("#btnSubmitFilter").on("click", function(e) {
+  $("#btnSubmitFilter").on("click", function (e) {
     e.preventDefault();
     data = $("#formFilter").serializeArray();
     $("#filterModel").modal("hide");
@@ -86,7 +88,7 @@ $(function() {
       type: "post",
       dataType: "json",
       data: data,
-      success: function(data) {
+      success: function (data) {
         $("#tdyd").html(data.konsolidasi);
       }
     }); //tdyd
@@ -95,18 +97,58 @@ $(function() {
       type: "post",
       dataType: "json",
       data: data,
-      success: function(data) {
+      success: function (data) {
         pka = $("#pka").html(data[0]);
         pkb = $("#pkb").html(data[1]);
         pkc = $("#pkc").html(data[2]);
         $("#pkd").html(data[3]);
         $("#pke").html(data[4]);
-        pp = data[0]+data[1]+data[2];
-        $("#pp").html(pp)
+        pp = parseInt(data[0]) + parseInt(data[1]) + parseInt(data[2]);
+        $("#pp").html(pp);
       }
     });
   });
   //end search proses
+
+  $("#btnCetakKonsolidasi").on("click", function () {
+    $form = $("#formFilter");
+    data = $form.serializeArray();
+
+    var kode_filter = 0;
+    var kode_tps = 0;
+    var memilih = 0;
+    var tipe_pemilih = 0;
+    var kontak = "";
+    console.log(data)
+    if ($("#kode_provinsi").val() !== 0) {
+      kode_filter = $("#kode_provinsi").val();
+    }
+    if ($("#kode_kabkota").val() !== 0) {
+      kode_filter = $("#kode_kabkota").val();
+    }
+    if ($("#kode_kecamatan").val() !== 0) {
+      kode_filter = $("#kode_kecamatan").val();
+    }
+    if ($("#kode_kelurahan").val() !== 0) {
+      kode_filter = $("#kode_kelurahan").val();
+    }
+    if ($("#selectTPS").val() !== 0) {
+      kode_tps = $("#selectTPS").val();
+    }
+    if ($("#memilih").val() !== 0) {
+      memilih = $("#memilih").val();
+    }
+    if ($("#tipe_pemilih").val() !== 0) {
+      tipe_pemilih = $("#tipe_pemilih").val();
+    }
+    if ($("#kontak") !== "all") {
+      kontak = $("#kontak").val();
+    }
+
+    window.open(host + "/app/views/print_konsolidasi.php?kode_filter=" + kode_filter +
+      "&kode_tps=" + kode_tps + "&memilih=" + memilih + "&tipe_pemilih=" + tipe_pemilih +
+      "&kontak=" + kontak, "_blank");
+  });
 });
 
 function ajaxAction() {
@@ -117,7 +159,7 @@ function ajaxAction() {
     url: host + "/app/api/konsolidasi/ajax.php",
     data: data,
     dataType: "json",
-    success: function(data) {
+    success: function (data) {
       $("#filterModel").modal("hide");
     }
   });

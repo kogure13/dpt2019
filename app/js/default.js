@@ -71,13 +71,13 @@ $(function() {
   let dropdown_memilih = $(".memilih");
   dropdown_memilih.empty();
   dropdown_memilih.append(
-    '<option selected="true" disabled>Pilihan Anda di Pileg</option>'
+    '<option selected="true" value="0">Pilihan Anda di Pileg</option>'
   );
 
   let dropdown_tipe = $(".tipe");
   dropdown_tipe.empty();
   dropdown_tipe.append(
-    '<option selected="true" disabled>Tipe Pemilih</option>'
+    '<option selected="true" value="0">Tipe Pemilih</option>'
   );
 
   v_memilih = $.getJSON(host + "/app/api/dpt/ajax.php?action=pileg", function(data) {

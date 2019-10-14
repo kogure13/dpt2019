@@ -71,8 +71,8 @@ class fetchData
         $where .= " or kk.kode_kabupaten_kota = " . $kode_filter;
         $where .= " or kc.kode_kecamatan = " . $kode_filter;
         $where .= " or kl.kode_kelurahan = " . $kode_filter . ")";
-        if (!empty($requestData['memilih'])) $where .= " and kp.id_pilihan = " . $requestData['memilih'];
         if (!empty($requestData['selectTPS'])) $where .= " and d.tps = " . $requestData['selectTPS'];
+        if (!empty($requestData['memilih'])) $where .= " and kp.id_pilihan = " . $requestData['memilih'];
         if (!empty($requestData['tipe_pemilih'])) $where .= " and tp.id_tipe = " . $requestData['tipe_pemilih'];
         if (!empty($requestData['kontak'])) {
             if ($requestData['kontak'] == 'all') {
@@ -181,33 +181,52 @@ class fetchData
 
     public function countKategori($requestData, $col, $crud, $userUI, $kode_filter)
     {
-        $field = "SELECT kp.kode_pilihan, count(kp.nama_pilihan) AS counta";
-        $from = "FROM (SELECT d.nama, d.nik, d.alamat, d.jenis_kelamin, m.banyak_pemilih, kp.kode_pilihan, kp.nama_pilihan, tp.nama_tipe, m.nomor_kontak, kp.id_pilihan, tp.id_tipe 
-        FROM dpt d
-        JOIN master_interview m on m.kode_dpt = d.kode_dpt
-        JOIN kategori_pilihan kp on kp.id_pilihan = m.id_pilihan
-        JOIN tipe_pemilih tp on tp.id_tipe = m.id_tipe_pemilih
-        JOIN kelurahan kl on kl.id_kelurahan = d.id_kelurahan
-        JOIN kecamatan kc on kc.id_kecamatan = kl.id_kecamatan
-        JOIN kabupaten_kota kk on kk.id_kabupaten_kota = kc.id_kabupaten_kota
-        JOIN provinsi p on p.id_provinsi = kk.id_provinsi";
-        $where = "WHERE (p.kode_provinsi = " . $kode_filter . " 
-        or kk.kode_kabupaten_kota = " . $kode_filter . " 
-        or kc.kode_kecamatan = " . $kode_filter . " 
-        or kl.kode_kelurahan = " . $kode_filter . ")";
+
+        $sql = "select kategori_pilihan, sum(jumlah) as jumlah
+        from
+        (
+            select kode_pilihan as kategori_pilihan, 0 as jumlah
+            from kategori_pilihan
         
-        $where .= ") AS kategori";
-        $where .= " JOIN kategori_pilihan kp on kp.id_pilihan = kategori.id_pilihan
-        GROUP BY kp.nama_pilihan
-        ORDER BY kp.id_pilihan ASC";
-        $sql = $field . " " . $from . " " . $where;
+            union all
+        
+            select kp.kode_pilihan as kategori_pilihan, sum(mi.banyak_pemilih) as jumlah
+            from kategori_pilihan kp
+            join master_interview mi on mi.id_pilihan = kp.id_pilihan
+            join tipe_pemilih tp on tp.id_tipe = mi.id_tipe_pemilih
+            join dpt d on d.kode_dpt = mi.kode_dpt
+            join kelurahan kl on kl.id_kelurahan = d.id_kelurahan
+            join kecamatan kc on kc.id_kecamatan = kl.id_kecamatan
+            join kabupaten_kota kk on kk.id_kabupaten_kota = kc.id_kabupaten_kota
+            join provinsi p on p.id_provinsi = kk.id_provinsi
+            where (p.kode_provinsi = '" . $kode_filter . "' or 
+            kk.kode_kabupaten_kota = '" . $kode_filter . "' or 
+            kc.kode_kecamatan = '" . $kode_filter . "' or 
+            kl.kode_kelurahan = '" . $kode_filter . "')";
+        if (!empty($requestData['memilih'])) $sql .= " and kp.id_pilihan = " . $requestData['memilih'];
+        if (!empty($requestData['selectTPS'])) $sql .= " and d.tps = " . $requestData['selectTPS'];
+        if (!empty($requestData['tipe_pemilih'])) $sql .= " and tp.id_tipe = " . $requestData['tipe_pemilih'];
+        if (!empty($requestData['kontak'])) {
+            if ($requestData['kontak'] == 'all') {
+                $sql .= ' ';
+            } elseif ($requestData['kontak'] == 0) {
+                $sql .= " and (m.nomor_kontak = '' and m.nomor_kontak = '-') ";
+            } elseif ($requestData['kontak'] == 1) {
+                $sql .= " and (m.nomor_kontak != '' and m.nomor_kontak != '-') ";
+            }
+        }
+        $sql .= "            
+            group by kp.kode_pilihan
+        ) as potensi
+        group by kategori_pilihan
+        order by kategori_pilihan asc";
         // echo $sql;
         // exit();
         $query = mysqli_query($this->conn, $sql) or die("Count Error");
-        while($row = mysqli_fetch_assoc($query)) {
-            $json_data[] = $row['counta'];
+        while ($row = mysqli_fetch_assoc($query)) {
+            $json_data[] = $row['jumlah'];
         }
-        
+
         echo json_encode($json_data);
     }
 }

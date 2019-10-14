@@ -11,11 +11,11 @@
                     </span>
                     <div class="info-box-content">
                         <span class="info-box-text">Jumlah DPT</span>
-                        <h3 class="overlay">
+                        <h4 class="overlay">
                             <span class="info-box-number text-center number" id="dpt">
                                 <i class="fa fa-refresh fa-spin"></i>
                             </span>
-                        </h3>
+                        </h4>
                     </div>
                 </div>
             </div>
@@ -25,12 +25,12 @@
                         <i class="fa fa-male"></i>
                     </span>
                     <div class="info-box-content">
-                        <span class="info-box-text">Jumlah DPT Laki-Laki</span>
-                        <h3 class="overlay">
+                        <span class="info-box-text">DPT Laki-Laki</span>
+                        <h4 class="overlay">
                             <span class="info-box-number text-center" id="dptl">
                                 <i class="fa fa-refresh fa-spin"></i>
                             </span>
-                        </h3>
+                        </h4>
                     </div>
                 </div>
             </div>
@@ -40,12 +40,12 @@
                         <i class="fa fa-female"></i>
                     </span>
                     <div class="info-box-content">
-                        <span class="info-box-text">Jumlah DPT Perempuan</span>
-                        <h3 class="overlay">
+                        <span class="info-box-text">DPT Perempuan</span>
+                        <h4 class="overlay">
                             <span class="info-box-number text-center" id="dptp">
                                 <i class="fa fa-refresh fa-spin"></i>
                             </span>
-                        </h3>
+                        </h4>
                     </div>
                 </div>
             </div>
@@ -56,11 +56,11 @@
                     </span>
                     <div class="info-box-content">
                         <span class="info-box-text">Jumlah TPS</span>
-                        <h3 class="overlay">
+                        <h4 class="overlay">
                             <span class="info-box-number text-center" id="tps">
                                 <i class="fa fa-refresh fa-spin"></i>
                             </span>
-                        </h3>
+                        </h4>
                     </div>
                 </div>
             </div>

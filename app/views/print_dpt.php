@@ -81,12 +81,12 @@ $data = mysqli_fetch_assoc($query);
     <header>
         <div class="row">
             <div class="col-xs-3" align="right">
-                <img src="/public/assets/images/logo-jsi.jpg" alt="">
+                <img src="../../public/assets/images/logo-jsi.jpg" alt="">
             </div>
             <div class="col-xs-7 text-center">
                 REKAP DAFTAR DPT <br />
-                Kelurahan: <?=$data['nama_kelurahan']?> Kecamatan: <?=$data['nama_kecamatan']?> <br />
-                Kabupaten/Kota: <?=$data['nama_kabupaten_kota']?> Provinsi: <?=$data['nama_provinsi']?> <br />
+                Kelurahan: <?= $data['nama_kelurahan'] ?> Kecamatan: <?= $data['nama_kecamatan'] ?> <br />
+                Kabupaten/Kota: <?= $data['nama_kabupaten_kota'] ?> Provinsi: <?= $data['nama_provinsi'] ?> <br />
             </div>
         </div>
         <br>
@@ -131,8 +131,8 @@ $data = mysqli_fetch_assoc($query);
                     echo "<td>" . strtoupper($row['nama']) . "</td>";
                     echo "<td>" . strtoupper($row['nik']) . "</td>";
                     echo "<td>" . strtoupper($row['alamat']) . "</td>";
-                    echo "<td>" . strtoupper($row['jenis_kelamin']) . "</td>";
-                    echo "<td>" . strtoupper($row['tps']) . "</td>";
+                    echo "<td class=\"text-center\">" . strtoupper($row['jenis_kelamin']) . "</td>";
+                    echo "<td class=\"text-center\">" . strtoupper($row['tps']) . "</td>";
                     echo "<td>" . strtoupper($row['nama_kelurahan']) . "</td>";
                     echo "<td>" . strtoupper($row['nama_kecamatan']) . "</td>";
                     echo "<td>" . strtoupper($row['nama_kabupaten_kota']) . "</td>";
@@ -145,6 +145,7 @@ $data = mysqli_fetch_assoc($query);
     </section>
 
     <script type="text/javascript">
+        window.focus();
         window.print();
         window.close();
     </script>

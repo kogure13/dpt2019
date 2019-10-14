@@ -164,7 +164,7 @@ $(function() {
   $("#btnCetakDPT").on("click", function(e) {
     $form = $("#formAdd");
     data = $form.serializeArray();
-    // console.log(data)
+    
     var kode_filter = 0;
     if ($("#kode_provinsi").val() !== 0) {
       kode_filter = $("#kode_provinsi").val();
