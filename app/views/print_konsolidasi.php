@@ -206,7 +206,7 @@ order by kategori_pilihan asc";
         $query = mysqli_query($connString, $sql) or die("Count Error");
         while ($row = mysqli_fetch_assoc($query)) {
             $json_data[] = $row['jumlah'];
-            $total = $total + $row['jumlah'];
+            $total = $total + $json_data[0]+$json_data[1]+$json_data[2];
         }
         ?>
 

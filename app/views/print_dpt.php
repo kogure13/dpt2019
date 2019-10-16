@@ -74,14 +74,19 @@ $data = mysqli_fetch_assoc($query);
             text-align: center;
             vertical-align: top;
         }
+
+        .header-image {
+            width: 45%;
+            background: url('../../public/assets/images/logo-jsi.jpg');
+        }
     </style>
 </head>
 
 <body>
     <header>
         <div class="row">
-            <div class="col-xs-3" align="right">
-                <img src="../../public/assets/images/logo-jsi.jpg" alt="">
+            <div class="col-xs-3 header-image" align="right">
+                <!-- <img src="../../public/assets/images/logo-jsi.jpg" alt=""> -->
             </div>
             <div class="col-xs-7 text-center">
                 REKAP DAFTAR DPT <br />
