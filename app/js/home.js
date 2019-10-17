@@ -74,6 +74,7 @@ $(document).ready(function() {
 function statistikTable() {
   $("#statistik").dataTable({
     scrollX: true,
+    autoWidth: true,
     pageLength: 20,
     ordering: false,
     lengthChange: false,

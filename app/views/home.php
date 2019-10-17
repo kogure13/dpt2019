@@ -76,12 +76,12 @@
                     </div>
                     <div class="box-body">
                         <div class="row">
-                            <div class="col-xs-12 col-sm-10">
+                            <div class="col-xs-12 col-lg-10">
                                 <div class="box-statistik" id="">
                                     
                                 </div>
                             </div>
-                            <div class="col-xs-12 col-sm-2">
+                            <div class="col-xs-12 col-lg-2">
 
                                 <h4 class="text-center">
                                     <strong>
