@@ -1,8 +1,5 @@
 $(function() {  
-  //clear
-  setInputFilter(document.getElementsByClassName("numOnly"), function(value) {
-    return /^\d*$/.test(value);
-  });
+  //clear  
 
   $(".btnCari").attr("disabled", true);
   $("#idPilihFilter").change(function(e) {

@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="<?= BASE_URL ?>public/bower_components/Ionicons/css/ionicons.min.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>public/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>public/bower_components/datatables.net-bs/css/responsive.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.0/css/buttons.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.0/css/buttons.dataTables.min.css">
 
     <link rel="stylesheet" href="<?= BASE_URL ?>public/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>public/dist/css/bootstrap-material-design.min.css">

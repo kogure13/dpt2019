@@ -8,9 +8,12 @@ var items_tps;
 
 var a = 4;
 
-$(function() {
+$(document).ready(function() {
   // sendReq();
   loadBody();
+  $(".numOnly").keypress(function (e) {
+    if (String.fromCharCode(e.keyCode).match(/[^0-9]/g)) return false;
+});
   
   $("input").attr("autocomplete", "off");
 
@@ -156,30 +159,6 @@ function letDropDown(id, filter) {
 //     }
 //   });
 // }
-
-function setInputFilter(textbox, inputFilter) {
-  [
-    "input",
-    "keydown",
-    "keyup",
-    "mousedown",
-    "mouseup",
-    "select",
-    "contextmenu",
-    "drop"
-  ].forEach(function(event) {
-    textbox.addEventListener(event, function() {
-      if (inputFilter(this.value)) {
-        this.oldValue = this.value;
-        this.oldSelectionStart = this.selectionStart;
-        this.oldSelectionEnd = this.selectionEnd;
-      } else if (this.hasOwnProperty("oldValue")) {
-        this.value = this.oldValue;
-        this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
-      }
-    });
-  });
-}
 
 function loadBody() {
   setTimeout(function() {
