@@ -15,10 +15,8 @@
     <link rel="stylesheet" href="<?= BASE_URL ?>public/bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>public/bower_components/Ionicons/css/ionicons.min.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>public/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
-    <!-- <link rel="stylesheet"
-        href="<?= BASE_URL ?>public/bower_components/datatables.net-bs/css/jquery.dataTables.min.css"> -->
-    <link rel="stylesheet"
-        href="<?= BASE_URL ?>public/bower_components/datatables.net-bs/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>public/bower_components/datatables.net-bs/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.0/css/buttons.dataTables.min.css" />
 
     <link rel="stylesheet" href="<?= BASE_URL ?>public/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>public/dist/css/bootstrap-material-design.min.css">
@@ -30,11 +28,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 
     <link rel="stylesheet" href="<?= BASE_URL ?>public/dist/css/style.css">
-
-    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"> -->
 </head>
 
 <body class="fixed hold-transition skin-blue sidebar-mini">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="preloader">
+                <div class="spinner-layer pl-red">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+            <p>Please wait...</p>
+        </div>
+    </div>
     <div class="wrapper">
         <header class="main-header">
             <nav class="navbar navbar-static-top">

@@ -179,6 +179,8 @@
                                 </select>
                             </div>
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <div class="form-group">
                                 <select name="memilih" id="memilih" class="memilih form-control">
@@ -191,14 +193,17 @@
                         <div class="col-xs-12 col-sm-8">
                             <div class="input-group">
                                 <div class="form-group is-empty">
-                                    <input type="text" name="banyak_pemilih" id="banyak_pemilih" class="form-control" placeholder="Jumlah Pemilih Dalam Satu Rumah">
+                                    <input type="text" name="banyak_pemilih" id="banyak_pemilih" class="form-control numOnly" placeholder="Jumlah Pemilih Dalam Satu Rumah">
                                 </div>
                                 <span class="input-group-addon">Orang</span>
                             </div>
                         </div>
+
+                    </div>
+                    <div class="row">
                         <div class="col-xs-12 col-sm-4">
                             <div class="form-group">
-                                <input type="text" name="kontak" id="kontak" class="form-control" placeholder="Nomor Kontak">
+                                <input type="text" name="kontak" id="kontak" class="form-control numOnly" placeholder="Nomor Kontak">
                             </div>
                         </div>
                     </div>

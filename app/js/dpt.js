@@ -1,12 +1,8 @@
-$(function() {
-  setInputFilter(document.getElementById("kontak"), function(value) {
-    return /^\d*$/.test(value);
-  });
-  setInputFilter(document.getElementById("banyak_pemilih"), function(value) {
-    return /^\d*$/.test(value);
-  });
+$(function() {  
   //clear
-  $("input").attr("autocomplete", "off");
+  setInputFilter(document.getElementsByClassName("numOnly"), function(value) {
+    return /^\d*$/.test(value);
+  });
 
   $(".btnCari").attr("disabled", true);
   $("#idPilihFilter").change(function(e) {

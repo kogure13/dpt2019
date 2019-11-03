@@ -10,6 +10,9 @@ var a = 4;
 
 $(function() {
   // sendReq();
+  loadBody();
+  
+  $("input").attr("autocomplete", "off");
 
   $("#tags_kelurahan").autocomplete({
     source: host + "/app/api/kelurahan/tags_kelurahan.php",
@@ -80,7 +83,9 @@ $(function() {
     '<option selected="true" value="0">Tipe Pemilih</option>'
   );
 
-  v_memilih = $.getJSON(host + "/app/api/dpt/ajax.php?action=pileg", function(data) {
+  v_memilih = $.getJSON(host + "/app/api/dpt/ajax.php?action=pileg", function(
+    data
+  ) {
     $.each(data, function(key, entry) {
       dropdown_memilih.append(
         $("<option></option>")
@@ -90,7 +95,9 @@ $(function() {
     });
   });
 
-  v_tipe = $.getJSON(host + "/app/api/dpt/ajax.php?action=tipe", function(data) {
+  v_tipe = $.getJSON(host + "/app/api/dpt/ajax.php?action=tipe", function(
+    data
+  ) {
     $.each(data, function(key, entry) {
       dropdown_tipe.append(
         $("<option></option>")
@@ -114,7 +121,7 @@ function numberFormat(number) {
     .split("")
     .reverse()
     .join("");
-    
+
   return ribuan;
 }
 
@@ -151,8 +158,17 @@ function letDropDown(id, filter) {
 // }
 
 function setInputFilter(textbox, inputFilter) {
-  ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function (event) {
-    textbox.addEventListener(event, function () {
+  [
+    "input",
+    "keydown",
+    "keyup",
+    "mousedown",
+    "mouseup",
+    "select",
+    "contextmenu",
+    "drop"
+  ].forEach(function(event) {
+    textbox.addEventListener(event, function() {
       if (inputFilter(this.value)) {
         this.oldValue = this.value;
         this.oldSelectionStart = this.selectionStart;
@@ -163,4 +179,10 @@ function setInputFilter(textbox, inputFilter) {
       }
     });
   });
+}
+
+function loadBody() {
+  setTimeout(function() {
+    $(".page-loader-wrapper").fadeOut();
+  }, 50);
 }
