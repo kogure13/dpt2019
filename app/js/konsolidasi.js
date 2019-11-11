@@ -153,7 +153,7 @@ $(function () {
 
 function ajaxAction() {
   data = $("#formFilter").serializeArray();
-  dTable = $("#lookup").dataTable();
+  dTable = $("#lookup").DataTable();
 
   v_dump = $.ajax({
     url: host + "/app/api/konsolidasi/ajax.php",

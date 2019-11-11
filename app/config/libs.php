@@ -46,7 +46,7 @@ function select($data = [], $title, $option = [])
         echo ' ';
     }
     echo '>';
-    echo '<option>' . $title . '</option>';
+    echo '<option value="resetTitle">' . $title . '</option>';
     if (count($option) > 0) {
         foreach ($option as $key => $val) {
             echo '<option value="' . $key . '">' . $val . '</option>';

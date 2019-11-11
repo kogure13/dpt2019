@@ -152,7 +152,7 @@ $data = mysqli_fetch_assoc($query);
     <script type="text/javascript">
         window.focus();
         window.print();
-        window.close();
+        // window.close();
     </script>
 </body>
 

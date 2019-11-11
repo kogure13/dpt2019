@@ -6,7 +6,7 @@ $db = new DBobj();
 $connString = $db->getConnString();
 $crud = new Crud($connString);
 $fetchData = new fetchData($connString);
-$userUI = new Main();
+$actInterview = new Interview($connString);
 
 $requestData = $_REQUEST;
 // $requestData = $requestData;
@@ -74,7 +74,7 @@ switch ($action) {
         break;
     case 'cariDPT':
         $columns = [];
-        echo json_encode($fetchData->getDataTable($requestData, $columns, $crud, $userUI, $kode_filter));
+        echo json_encode($fetchData->getDataTable($requestData, $columns, $crud, $actInterview, $kode_filter));
         // echo $requestData['niknama'];
         break;
     case 'pileg':
@@ -141,7 +141,7 @@ class fetchData
         return $json_data;
     }
 
-    public function getDataTable($requestData, $col, $crud, $userUI, $kode_filter)
+    public function getDataTable($requestData, $col, $crud, $actInterview, $kode_filter)
     {
         // $fieldCOunt = ['count(*) as count'];
         $field = "select d.id_dpt, d.kode_dpt, d.nik, d.nama, d.alamat, d.jenis_kelamin, d.tps, k.nama_kelurahan, kc.nama_kecamatan, kk.nama_kabupaten_kota, p.nama_provinsi ";
@@ -158,7 +158,7 @@ class fetchData
         if (!empty($requestData['tps']))
             $where .= " and d.tps = '" . $requestData['tps'] . "'";
 
-        $where .= " and d.memilih = 0";
+        // $where .= " and d.memilih = 0";        
         $sqfilter = $field . " from " . $from . " " . $join . " where " . $where;
         $sql = $sqfilter;
         // echo $sqfilter;
@@ -190,7 +190,7 @@ class fetchData
         while ($row = mysqli_fetch_assoc($query)) {
             $nesdata = [];
 
-            $nesdata[] = $userUI->actInterview($row['kode_dpt']);
+            $nesdata[] = $actInterview->actInterview($row['kode_dpt']);
             $nesdata[] = strtoupper($row['nama']);
             $nesdata[] = strtoupper($row['nik']);
             $nesdata[] = strtoupper($row['alamat']);

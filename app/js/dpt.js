@@ -17,7 +17,7 @@ $(function() {
   });
 
   // dataTable
-  var dTable = $("#lookup").dataTable({
+  $("#lookup").dataTable({
     autoWidth: true,
     scrollX: true,
     responsive: true,
@@ -26,7 +26,7 @@ $(function() {
     ordering: false,
     searching: false,
     lengthChange: false,
-    pageLength: 20,
+    pageLength: 20,  
     language: {
       sSearch: "_INPUT_",
       sSearchPlaceholder: "Search...",
@@ -38,7 +38,7 @@ $(function() {
         bSortable: false
       },
       {
-        aTargets: [0, 5],
+        aTargets: [0, 4, 5],
         className: "text-center"
       }
     ],
@@ -83,7 +83,7 @@ $(function() {
   //search proses
   $("#btnCari").on("click", function(e) {
     e.preventDefault();
-    dTable.api().ajax.reload();
+    $("#lookup").dataTable().api().ajax.reload();
   });
   //end search
 
@@ -137,6 +137,7 @@ $(function() {
   //     }
   //   });
   // });
+
   $("#formInterview").validate({
     rules: {
       memilih: {
@@ -156,25 +157,28 @@ $(function() {
   //Cetak proses
   $("#btnCetakDPT").on("click", function(e) {
     $form = $("#formAdd");
-    data = $form.serializeArray();
+    data = $form.serializeArray();    
     
-    var kode_filter = 0;
-    if ($("#kode_provinsi").val() !== 0) {
+    var kode_filter = "";
+    var niknama = "";
+    var kode_tps = "";
+
+    if ($("#kode_provinsi").val() !== "") {
       kode_filter = $("#kode_provinsi").val();
     }
-    if ($("#kode_kabkota").val() !== 0) {
+    else if ($("#kode_kabkota").val() !== "") {
       kode_filter = $("#kode_kabkota").val();
     }
-    if ($("#kode_kecamatan").val() !== 0) {
+    else if ($("#kode_kecamatan").val() !== "") {
       kode_filter = $("#kode_kecamatan").val();
     }
-    if ($("#kode_kelurahan").val() !== 0) {
+    else if ($("#kode_kelurahan").val() !== "") {
       kode_filter = $("#kode_kelurahan").val();
     }
-    if ($("#selectTPS").val() !== 0) {
+    else if ($("#selectTPS").val() !== "") {
       kode_tps = $("#selectTPS").val();
     }
-    if($("#niknama").val() !== "") {
+    else if ($("#niknama").val() !== "") {
       niknama = $("#niknama").val();
     } 
     
@@ -189,15 +193,19 @@ function hapus(id) {
 function ajaxAction() {
   data = $("#formInterview").serializeArray();
   table = $("#lookup").DataTable();
+  // console.log(data)
 
   var v_dump = $.ajax({
     url: host + "/app/api/dpt/ajax.php",
     type: "post",
     dataType: "json",
     data: data,
+    beforeSend: function() {
+      loadBody();
+    },
     success: function(data, response) {
       $("#interviewModel").modal("hide");
-      $("select").val("");
+      $('select option[value="resetTitle"]').attr("selected",true);
       alert("Interview Saved!!");
       table.ajax.reload();
     },

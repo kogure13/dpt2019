@@ -153,29 +153,11 @@ class Main extends Controller
     function getLogin()
     {
         $this->view('login');
-    }
-
-    public function actInterview($id)
-    {
-        $db = new DBobj();
-        $connString = $db->getConnString();
-        $cek = new Interview($connString);
-        
-        $actBtn = '<div class="form-group text-center">';
-        $actBtn .= '<select name="modalAct" id="modalAct" class="modalAct">';
-        $actBtn .= '<option value="">Action</option>';
-        // $actBtn .= '<option value="edit" data-id="'.$id.'" style="display: none">Edit</option>';
-        // if ($cek->cekMemilih($id) == 0) {
-            $actBtn .= '<option value="interview" data-id="'.$id.'">Interview</option>';
-        // }
-        $actBtn .= '</select>';
-        $actBtn .= '</div>';
-
-        return $actBtn;
-    }
+    }    
 }
 
 class Interview {
+
     protected $conn;
 
     public function __construct($connString)
@@ -214,5 +196,30 @@ class Interview {
         $result = mysqli_fetch_assoc($query);
 
         return $result['pemilih_id'];
+    }
+
+    public function actInterview($id)
+    {        
+        
+        $actBtn = '<div class="form-group text-center">';
+        $actBtn .= '<select name="modalAct" id="modalAct" class="modalAct">';
+        $actBtn .= '<option value="">Action</option>';
+        // $actBtn .= '<option value="edit" data-id="'.$id.'" style="display: none">Edit</option>';
+        // if ($cek->cekMemilih($id) == 0) {
+            $actBtn .= '<option value="interview" data-id="'.$id.'">Interview</option>';
+        // }
+        $actBtn .= '</select>';
+        $actBtn .= '</div>';
+
+        $true = "<i class=\"fa fa-check fa-fw text-success\"></i>";
+
+        if($this->cekMemilih($id) == 0) {
+            return $actBtn;    
+        } else {
+            // echo "Sudah Terinterview";
+            return $true;
+        }
+
+        
     }
 }
