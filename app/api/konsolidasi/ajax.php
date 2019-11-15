@@ -6,7 +6,7 @@ $db = new DBobj();
 $connString = $db->getConnString();
 $crud = new Crud($connString);
 $fetchData = new fetchData($connString);
-$userUI = new Main();
+$userUI = new Konsolidasi($connString);
 
 $requestData = $_REQUEST;
 // $requestData = $_POST;
@@ -19,6 +19,7 @@ $kode_filter = (!empty($requestData['kode_provinsi'])) ? $requestData['kode_prov
 $kode_filter = (!empty($requestData['kode_kabkota'])) ? $requestData['kode_kabkota'] : $kode_filter;
 $kode_filter = (!empty($requestData['kode_kecamatan'])) ? $requestData['kode_kecamatan'] : $kode_filter;
 $kode_filter = (!empty($requestData['kode_kelurahan'])) ? $requestData['kode_kelurahan'] : $kode_filter;
+$kode_filter = (!empty($requestData['kode_filter'])) ? $requestData['kode_filter'] : $kode_filter;
 
 switch ($action) {
     case 'cariKonsolidasi':
@@ -32,6 +33,41 @@ switch ($action) {
     case 'countKategori':
         $columns = [];
         $fetchData->countKategori($requestData, $columns, $crud, $userUI, $kode_filter);
+        break;
+
+    case 'edit':        
+        $tb_name = 'master_interview';
+        $data = [
+            'id_tipe_pemilih'=>mysqli_real_escape_string($connString, $requestData['itipe_pemilih']),
+            'id_pilihan'=>mysqli_real_escape_string($connString, $requestData['imemilih']),
+            'nomor_kontak'=>mysqli_real_escape_string($connString, $requestData['ikontak']),
+            'banyak_pemilih'=>mysqli_real_escape_string($connString, $requestData['ibanyak_pemilih'])
+        ];
+        $where = "kode_dpt = '".mysqli_real_escape_string($connString, $requestData['kodePemilih'])."'";
+
+        $msg = $crud->update($tb_name, $data, $where);
+        break;
+    case 'updateInterview':
+        $field = ['*'];
+        $from = 'master_interview';
+        $join = $order = '';
+        $where = 'kode_dpt = ' . $_GET['id'];
+        $query = $crud->read($field, $from, $join, $where, $order);
+        while ($row = mysqli_fetch_assoc($query)) {
+            $data = $row;
+        }
+        echo json_encode($data);
+        break;
+    case 'hapus':
+        //update memlih = 0
+        $sql = "update dpt set memilih = 0 where kode_dpt = '".$requestData['id']."'";
+        $exec = mysqli_query($connString, $sql) or die(E_ERROR);
+        //hapus data
+        $data = "kode_dpt = '".$requestData['id']."'";
+        $exec1 = $crud->delete("master_interview", $data);
+        //hapus detail
+        $exec2 = $crud->delete("detail_interview", $data);
+
         break;
 }
 
@@ -114,7 +150,7 @@ class fetchData
         while ($row = mysqli_fetch_assoc($query)) {
             $nesdata = [];
 
-            $nesdata[] = $userUI->actInterview($row['kode_dpt']);
+            $nesdata[] = $userUI->actKonsolidasi($row['kode_dpt']);
             $nesdata[] = strtoupper($row['nama']);
             $nesdata[] = strtoupper($row['nik']);
             $nesdata[] = strtoupper($row['alamat']);

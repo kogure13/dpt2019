@@ -34,11 +34,11 @@ $data = mysqli_fetch_assoc($query);
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
-    <link rel="stylesheet" href="../../public/bower_components/bootstrap/dist/css/bootstrap.min.css" media="print">
+    <link rel="stylesheet" href="../../public/bower_components/bootstrap/dist/css/bootstrap.min.css" media="">
 
     <style>
         @page {
-            size: landscape;
+            size: legal landscape;
             margin: 5mm 5mm 5mm 5mm;
             /* change the margins as you want them to be. */
         }
@@ -73,20 +73,15 @@ $data = mysqli_fetch_assoc($query);
         #lookup>thead>tr>th {
             text-align: center;
             vertical-align: top;
-        }
-
-        .header-image {
-            width: 45%;
-            background: url('../../public/assets/images/logo-jsi.jpg');
-        }
+        }        
     </style>
 </head>
 
 <body>
     <header>
         <div class="row">
-            <div class="col-xs-3 header-image" align="right">
-                <!-- <img src="../../public/assets/images/logo-jsi.jpg" alt=""> -->
+            <div class="col-xs-3" align="right">
+                <img src="../../public/assets/images/logo-jsi.jpg" alt="">
             </div>
             <div class="col-xs-7 text-center">
                 REKAP DAFTAR DPT <br />

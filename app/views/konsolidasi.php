@@ -49,33 +49,37 @@
                         </table>
                         <!-- Span test -->
                         <strong> Rekap Konsolidasi </strong>
-                        <hr style="margin: 5px 0; border: 1px solid #ddd;">
-                        <span>Total data yang ditemukan: <b id="tdyd" class="pkdefault">0</b> Orang</span>
-                        <hr style="margin: 5px 0; border: 1px solid #ddd;">
-                        <table class="table-condensed table-responsive">
-                            <tr>
-                                <td>Pemilih Kategori A <span class="hidden-xs">&#40;PARTAI SAYA DAN CALEG SAYA&#41;</span></td>
-                                <td>: <b id="pka" class="pkdefault">0</b> Orang</td>
-                            </tr>
-                            <tr>
-                                <td>Pemilih Kategori B <span class="hidden-xs">&#40;PARTAI SAYA NAMUN BELUM ADA CALEG&#41;</span></td>
-                                <td>: <b id="pkb" class="pkdefault">0</b> Orang</td>
-                            </tr>
-                            <tr>
-                                <td>Pemilih Kategori C <span class="hidden-xs">&#40;TIDAK TAHU &#47; TIDAK MENJAWAB&#41;</span></td>
-                                <td>: <b id="pkc" class="pkdefault">0</b> Orang</td>
-                            </tr>
-                            <tr>
-                                <td>Pemilih Kategori D <span class="hidden-xs">&#40;PARTAI SAYA NAMUN CALEG LAIN&#41;</span></td>
-                                <td>: <b id="pkd" class="pkdefault">0</b> Orang</td>
-                            </tr>
-                            <tr>
-                                <td>Pemilih Kategori E <span class="hidden-xs">&#40;PARTAI LAIN DAN CALEG LAIN&#41;</span></td>
-                                <td>: <b id="pke" class="pkdefault">0</b> Orang</td>
-                            </tr>
-                        </table>
-                        <hr style="margin: 5px 0; border: 1px solid #ddd">
-                        <span>Potensi Pemilih : <b id="pp" class="pkdefault">0</b> Orang</span>
+                        <section id="rekap" class="overlay">
+                            <hr style="margin: 5px 0; border: 1px solid #ddd;">
+                            <span>Total data yang ditemukan: <b id="tdyd" class="pkdefault">0</b> Orang</span>
+                            <hr style="margin: 5px 0; border: 1px solid #ddd;">
+                            <table class="table-condensed table-responsive">
+                                <tr>
+                                    <td>Pemilih Kategori A <span class="hidden-xs">&#40;PARTAI SAYA DAN CALEG SAYA&#41;</span></td>
+                                    <td>: <b id="pka" class="pkdefault">0</b> Orang</td>
+                                </tr>
+                                <tr>
+                                    <td>Pemilih Kategori B <span class="hidden-xs">&#40;PARTAI SAYA NAMUN BELUM ADA CALEG&#41;</span></td>
+                                    <td>: <b id="pkb" class="pkdefault">0</b> Orang</td>
+                                </tr>
+                                <tr>
+                                    <td>Pemilih Kategori C <span class="hidden-xs">&#40;TIDAK TAHU &#47; TIDAK MENJAWAB&#41;</span></td>
+                                    <td>: <b id="pkc" class="pkdefault">0</b> Orang</td>
+                                </tr>
+                                <tr>
+                                    <td>Pemilih Kategori D <span class="hidden-xs">&#40;PARTAI SAYA NAMUN CALEG LAIN&#41;</span></td>
+                                    <td>: <b id="pkd" class="pkdefault">0</b> Orang</td>
+                                </tr>
+                                <tr>
+                                    <td>Pemilih Kategori E <span class="hidden-xs">&#40;PARTAI LAIN DAN CALEG LAIN&#41;</span></td>
+                                    <td>: <b id="pke" class="pkdefault">0</b> Orang</td>
+                                </tr>
+                            </table>
+                            <hr style="margin: 5px 0; border: 1px solid #ddd">
+                            <h4 style="font-weight: bold; color: #8b0000">
+                                <span>Potensi Pemilih : <b id="pp" class="pkdefault">0</b> Orang</span>
+                            </h4>                            
+                        </section>
                         <span id="spanTest"></span>
                     </div>
                 </div>
@@ -83,7 +87,7 @@
         </div>
     </section>
 </div>
-
+<!-- End Section -->
 <div id="filterModel" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -227,3 +231,78 @@
         </div>
     </div>
 </div>
+<!-- End Filter -->
+<div id="interviewModel" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="modalTitleInterView" class="modal-title"></h4>
+            </div>
+            <form id="formInterview" name="formInterview" class="" novalidate="novalidate" data-form="formInterview">
+                <div class="modal-body">
+                    <div class="">
+                        <input type="hidden" value="interview" name="action" id="actionInterview">
+                        <input type="hidden" class="kode-filter">
+                        <input type="hidden" value="0" name="kodePemilih" id="kodePemilih">
+                        <input type="hidden" value="<?= date('Y-m-d H:i:s'); ?>" name="waktu" id="waktu">
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="form-group">
+                                <select name="itipe_pemilih" id="itipe_pemilih" class="tipe form-control">
+                                    <option value="">Tipe Pemilih</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="form-group">
+                                <select name="imemilih" id="imemilih" class="memilih form-control">
+                                    <option value="">Pilihan Anda Di Pileg</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-8">
+                            <div class="input-group">
+                                <div class="form-group is-empty">
+                                    <input type="text" name="ibanyak_pemilih" id="ibanyak_pemilih" class="form-control numOnly" placeholder="Jumlah Pemilih Dalam Satu Rumah">
+                                </div>
+                                <span class="input-group-addon">Orang</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-4">
+                            <div class="form-group">
+                                <input type="text" name="ikontak" id="ikontak" class="kontak form-control numOnly" placeholder="Nomor Kontak">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="qa"></div>
+                </div>
+
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-sm-12 col-xs-12">
+                            <button type="button" id="btnAddInterview" class="btn btn-sm bg-gray">
+                                <i class="fa fa-plus fa-fw"></i> Pertanyaan
+                            </button>
+                            <button type="button" id="btnCancelInterview" class="btn btn-sm btn-danger bg-red" data-dismiss="modal">
+                                <i class="fa fa-times fa-fw"></i> Close
+                            </button>
+                            <button type="submit" id="btnSubmitInterview" class="btn btn-sm btn-primary bg-blue-active">
+                                <i class="fa fa-save fa-fw"></i> Simpan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End Edit Interview -->

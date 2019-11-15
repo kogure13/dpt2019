@@ -161,24 +161,24 @@ $(function() {
     
     var kode_filter = "";
     var niknama = "";
-    var kode_tps = "";
+    var kode_tps = 0;
 
     if ($("#kode_provinsi").val() !== "") {
       kode_filter = $("#kode_provinsi").val();
     }
-    else if ($("#kode_kabkota").val() !== "") {
+    if ($("#kode_kabkota").val() !== "") {
       kode_filter = $("#kode_kabkota").val();
     }
-    else if ($("#kode_kecamatan").val() !== "") {
+    if ($("#kode_kecamatan").val() !== "") {
       kode_filter = $("#kode_kecamatan").val();
     }
-    else if ($("#kode_kelurahan").val() !== "") {
+    if ($("#kode_kelurahan").val() !== "") {
       kode_filter = $("#kode_kelurahan").val();
     }
-    else if ($("#selectTPS").val() !== "") {
+    if ($("#selectTPS").val() !== 0) {
       kode_tps = $("#selectTPS").val();
     }
-    else if ($("#niknama").val() !== "") {
+    if ($("#niknama").val() !== "") {
       niknama = $("#niknama").val();
     } 
     

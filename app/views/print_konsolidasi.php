@@ -38,7 +38,7 @@ $data = mysqli_fetch_assoc($query);
 
     <style>
         @page {
-            size: landscape;
+            size: legal landscape;
             margin: 5mm 5mm 5mm 5mm;
             /* change the margins as you want them to be. */
         }
@@ -77,7 +77,7 @@ $data = mysqli_fetch_assoc($query);
     </style>
 </head>
 
-<body onload="window.print()" onfocus="window.close()">
+<body>
     <header>
         <div class="row">
             <div class="col-xs-3" align="right">
@@ -203,11 +203,13 @@ order by kategori_pilihan asc";
         // echo $sql;
         // exit();
         $total = 0;
+        $json_data = [];
         $query = mysqli_query($connString, $sql) or die("Count Error");
         while ($row = mysqli_fetch_assoc($query)) {
-            $json_data[] = $row['jumlah'];
-            $total = $total + $json_data[0]+$json_data[1]+$json_data[2];
+            $json_data[] = $row['jumlah'];                        
         }
+        $total = $json_data[0]+$json_data[1]+$json_data[2];
+        // print_r($json_data[0]);
         ?>
 
         <strong> Rekap Konsolidasi </strong>
@@ -240,10 +242,8 @@ order by kategori_pilihan asc";
         <span>Potensi Pemilih : <b id="pp" class="pkdefault"><?=$total?></b> Orang</span>
     </section>
 
-    <script type="text/javascript">
-        window.focus();
-        window.print();
-        window.close();
+    <script type="text/javascript">        
+        window.print();        
     </script>
 
 </body>

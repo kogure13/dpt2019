@@ -122,7 +122,7 @@ class Crud
 
 class Main extends Controller
 {
-    
+
 
     function getPage()
     {
@@ -153,10 +153,11 @@ class Main extends Controller
     function getLogin()
     {
         $this->view('login');
-    }    
+    }
 }
 
-class Interview {
+class Interview
+{
 
     protected $conn;
 
@@ -199,27 +200,46 @@ class Interview {
     }
 
     public function actInterview($id)
-    {        
-        
+    {
+
         $actBtn = '<div class="form-group text-center">';
         $actBtn .= '<select name="modalAct" id="modalAct" class="modalAct">';
         $actBtn .= '<option value="">Action</option>';
-        // $actBtn .= '<option value="edit" data-id="'.$id.'" style="display: none">Edit</option>';
-        // if ($cek->cekMemilih($id) == 0) {
-            $actBtn .= '<option value="interview" data-id="'.$id.'">Interview</option>';
-        // }
+        $actBtn .= '<option value="interview" data-id="' . $id . '">Interview</option>';
         $actBtn .= '</select>';
         $actBtn .= '</div>';
 
         $true = "<i class=\"fa fa-check fa-fw text-success\"></i>";
 
-        if($this->cekMemilih($id) == 0) {
-            return $actBtn;    
+        if ($this->cekMemilih($id) == 0) {
+            return $actBtn;
         } else {
             // echo "Sudah Terinterview";
             return $true;
         }
+    }
+}
 
-        
+class Konsolidasi
+{
+    protected $conn;
+
+    public function __construct($connString)
+    {
+        $this->conn = $connString;
+    }
+
+    public function actKonsolidasi($id)
+    {
+
+        $actBtn = '<div class="form-group text-center">';
+        $actBtn .= '<select name="modalAct" id="modalAct" class="modalAct">';
+        $actBtn .= '<option value="">Action</option>';
+        $actBtn .= '<option value="edit" data-id="' . $id . '">Edit</option>';
+        $actBtn .= '<option value="hapus" data-id="' . $id . '">Hapus</option>';
+        $actBtn .= '</select>';
+        $actBtn .= '</div>';
+
+        return $actBtn;
     }
 }
