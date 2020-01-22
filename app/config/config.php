@@ -16,7 +16,7 @@ define('BASE_URL', $base_url);
 define('MY_LM', 'T440p'); //local machine
 $hostname = gethostname();
 
-(MY_LM == $hostname) ? $host = '103.129.220.250' : $host = 'localhost';
+(MY_LM == $hostname) ? $host = 'edpt-jsi.org' : $host = 'localhost';
 
 define('DB_HOST', $host);
 define('DB_NAME', 'edptjsio_dpt');

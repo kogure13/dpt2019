@@ -210,7 +210,7 @@
                         <div class="col-sm-4 col-xs-4">
                             <div class="form-group is-empty">
                                 <select name="kontak" id="kontak" class="kontak form-control">
-                                    <option value="all">Semua</option>
+                                    <option value="all">Semua Nomor Kontak</option>
                                     <option value="0">Tidak Memberi Kontak</option>
                                     <option value="1">Memberi Kontak</option>
                                 </select>

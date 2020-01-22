@@ -44,13 +44,15 @@ $(function() {
 
   dTable = $("#lookup").dataTable({
     autoWidth: true,
-    scrollX: true,
-    responsive: true,
-    serverSide: true,
-    processing: true,
-    ordering: false,
     lengthChange: false,
+    ordering: false,
     pageLength: 20,
+    processing: true,
+    responsive: true,
+    scrollX: true,
+    serverSide: true,
+    searching: false,
+    
     language: {
       sSearch: "_INPUT_",
       sSearchPlaceholder: "Search...",

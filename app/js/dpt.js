@@ -1,5 +1,5 @@
-$(function() {  
-  //clear  
+$(function() {
+  //clear
 
   $(".btnCari").attr("disabled", true);
   $("#idPilihFilter").change(function(e) {
@@ -19,14 +19,15 @@ $(function() {
   // dataTable
   $("#lookup").dataTable({
     autoWidth: true,
-    scrollX: true,
-    responsive: true,
-    serverSide: true,
-    processing: true,
-    ordering: false,
-    searching: false,
     lengthChange: false,
-    pageLength: 20,  
+    ordering: false,
+    pageLength: 20,
+    processing: true,
+    responsive: true,
+    scrollX: true,
+    serverSide: true,
+    searching: false,
+
     language: {
       sSearch: "_INPUT_",
       sSearchPlaceholder: "Search...",
@@ -83,7 +84,10 @@ $(function() {
   //search proses
   $("#btnCari").on("click", function(e) {
     e.preventDefault();
-    $("#lookup").dataTable().api().ajax.reload();
+    $("#lookup")
+      .dataTable()
+      .api()
+      .ajax.reload();
   });
   //end search
 
@@ -157,8 +161,8 @@ $(function() {
   //Cetak proses
   $("#btnCetakDPT").on("click", function(e) {
     $form = $("#formAdd");
-    data = $form.serializeArray();    
-    
+    data = $form.serializeArray();
+
     var kode_filter = "";
     var niknama = "";
     var kode_tps = 0;
@@ -180,9 +184,18 @@ $(function() {
     }
     if ($("#niknama").val() !== "") {
       niknama = $("#niknama").val();
-    } 
-    
-    window.open(host+"/app/views/print_dpt.php?kode_filter="+kode_filter+"&kode_tps="+kode_tps+"&niknama="+niknama, "_blank");
+    }
+
+    window.open(
+      host +
+        "/app/views/print_dpt.php?kode_filter=" +
+        kode_filter +
+        "&kode_tps=" +
+        kode_tps +
+        "&niknama=" +
+        niknama,
+      "_blank"
+    );
   });
 });
 
@@ -205,7 +218,7 @@ function ajaxAction() {
     },
     success: function(data, response) {
       $("#interviewModel").modal("hide");
-      $('select option[value="resetTitle"]').attr("selected",true);
+      $('select option[value="resetTitle"]').attr("selected", true);
       alert("Interview Saved!!");
       table.ajax.reload();
     },

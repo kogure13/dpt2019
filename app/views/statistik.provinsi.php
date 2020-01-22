@@ -5,7 +5,7 @@ $connString = $db->getConnString();
 $crud = new Crud($connString);
 ?>
 
-<table id="statistik" class="table-statistik table-responsive table-condensed table-striped">
+<table id="" class="statistik table-statistik table-responsive table-condensed table-striped" width="100%">
     <thead>
         <tr>
             <th class="nosort" rowspan="2">#</th>

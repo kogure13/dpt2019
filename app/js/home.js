@@ -2,6 +2,13 @@ var url = host + "/app/api/home/ajax.php";
 var load = host + "/app/views/";
 
 $(document).ready(function() {
+
+  var table = $(".statistik").DataTable();
+  com = $(".statistik tbody").on("click", "tr", function(){
+    var data = table.row(this).data();
+    alert("Data click is "+data[0]);
+  });
+
   $(".infoAct").on("click", function(e) {
     e.preventDefault();
     var id = $(this).attr("id");
@@ -9,11 +16,13 @@ $(document).ready(function() {
 
     $(".box-statistik").load(loadStatistik, function() {
       statistikTable();
+      
       $(".namaAct").on("click", function(e) {
         e.preventDefault();
         var dataid = $(this).attr("data-id");
         $(".box-statistik").load(loadStatistik, function(){
           statistikTable();
+          
         });
       });
     });
@@ -57,8 +66,7 @@ $(document).ready(function() {
                   //load to kelurahan
                   loadStatistik = load+"statistik.kelurahan.php?id="+dataid;
                   $(".box-statistik").load(loadStatistik, function(){
-                    statistikTable();
-                    
+                    statistikTable();                    
                   });
                 });
               });
@@ -72,16 +80,14 @@ $(document).ready(function() {
 });
 
 function statistikTable() {
-  $("#statistik").dataTable({
+  $(".statistik").dataTable({
     scrollX: true,
     autoWidth: true,
-    pageLength: 20,
+    pageLength: 50,
     ordering: false,
     lengthChange: false,
-    language: {
-      sSearch: "_INPUT_",
-      sSearchPlaceholder: "Search...",
-      sLengthMenu: "_MENU_"
-    }
+    searching: false,
+    paging: false,
+    info: false
   });
 }

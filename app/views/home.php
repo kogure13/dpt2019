@@ -77,9 +77,12 @@
                     <div class="box-body">
                         <div class="row">
                             <div class="col-xs-12 col-lg-10">
-                                <div class="box-statistik" id="">
-                                    
-                                </div>
+                                <h4>
+                                    <strong>
+                                        <i class="fa fa-home"></i>
+                                    </strong>
+                                </h4>
+                                <div class="box-statistik" id="" style="margin-top: -7px;"></div>
                             </div>
                             <div class="col-xs-12 col-lg-2">
 
